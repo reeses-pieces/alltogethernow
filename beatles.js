@@ -10,10 +10,12 @@ const recognition = new SpeechRecognition();
 // Live visual feedback to show what you are speaking
 recognition.interimResults = true;
 
+const assets = $("#assets");
 const mainContent = $("#main-container");
 const words = $("#words");
 const portrait = $("#portrait");
 const johnSquare = $("#john-head");
+const littleMore = $("#little-more");
 
 const keyWords = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -24,7 +26,8 @@ const keyWords = {
 };
 
 function changeImgCrop(args={}, lastImage=false) {
-  mainContent.append(portrait);
+  assets.children().hide()
+  portrait.show();
   $('#portrait').css('clip', `rect(${args.top}px,${args.right}px,${args.bottom}px,${args.left}px)`);
   if(lastImage) {
     setTimeout(aLittleMore, 1100);
@@ -32,11 +35,14 @@ function changeImgCrop(args={}, lastImage=false) {
 }
 
 function aLittleMore() {
-  mainContent.html("<p>Can I have a little more?</p>");
+  assets.children().hide();
+  littleMore.show();
 }
 
 function slideInPortraits(args={}) {
   console.log(this);
+  assets.children().hide();
+  this.show();
   this.animate(args, 500);
 }
 
@@ -60,6 +66,9 @@ function processCommand(transcript) {
     keyWords[transcript]();
   }
 }
+
+// Start with all the assets invisible
+assets.children().hide();
 
 recognition.addEventListener("result", speechTranscript);
 recognition.addEventListener("end", recognition.start);
