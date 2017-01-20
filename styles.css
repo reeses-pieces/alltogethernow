@@ -17,14 +17,14 @@ body {
 }
 
 #main-container {
+  margin: auto;
   width: 1024px;
   height: 768px;
-  /*border:5px solid blue;*/
+  border:5px solid blue;
   position: relative;
   font-size: 0;
   overflow: hidden;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 
 #portrait {
