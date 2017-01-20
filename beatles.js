@@ -13,12 +13,14 @@ recognition.interimResults = true;
 const mainContent = $("#main-container");
 const words = $("#words");
 const portrait = $("#portrait");
+const johnSquare = $("#john-head");
 
 const keyWords = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
   "two": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
   "three": changeImgCrop.bind(null, {top: 382, right: 385, bottom: 762, left: 0}),
   "for": changeImgCrop.bind(null, {top: 382, right: 800, bottom: 762, left: 385}, true),
+  "five": slideInPortraits.bind(johnSquare, {left: "-130px"})
 };
 
 function changeImgCrop(args={}, lastImage=false) {
@@ -33,6 +35,13 @@ function aLittleMore() {
   mainContent.html("<p>Can I have a little more?</p>");
 }
 
+function slideInPortraits(args={}) {
+  console.log(this);
+  this.animate(args, 500);
+}
+
+
+// Parse speech
 function speechTranscript(e) {
   const transcript = Array.from(e.results)
     .map(result => result[0])

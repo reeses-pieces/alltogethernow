@@ -53,17 +53,17 @@ body {
   clip: rect(800px,800px,800px,0px);
 }
 
-.heads {
+.horiz-heads {
   margin: auto 0;
+  top: 0px;
+  bottom: 0px;
 }
 
-#john-square {
+#john-head {
   vertical-align: middle;
   transform: scale(.5) rotate(90deg);
   position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: -50%;
+  left: -410px;
 }
 
 #words-container {
