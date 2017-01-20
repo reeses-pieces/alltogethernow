@@ -61,14 +61,27 @@ body {
   position: absolute;
 }
 
+.vert-heads {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin: 0 auto;
+  vertical-align: middle;
+}
+
 #john-head {
   transform: scale(.5) rotate(90deg);
-  left: -410px;
+  left: -408px;
 }
 
 #paul-head {
   transform: scale(.5) rotate(-90deg);
   right: -408px;
+}
+
+#george-head {
+  transform: scale(.5) rotate(180deg);
+  top: -408px;
 }
 
 #words-container {
