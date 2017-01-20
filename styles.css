@@ -57,13 +57,18 @@ body {
   margin: auto 0;
   top: 0px;
   bottom: 0px;
+  vertical-align: middle;
+  position: absolute;
 }
 
 #john-head {
-  vertical-align: middle;
   transform: scale(.5) rotate(90deg);
-  position: absolute;
   left: -410px;
+}
+
+#paul-head {
+  transform: scale(.5) rotate(-90deg);
+  right: -408px;
 }
 
 #words-container {
