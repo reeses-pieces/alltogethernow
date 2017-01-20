@@ -11,12 +11,13 @@ const recognition = new SpeechRecognition();
 recognition.interimResults = true;
 
 const mainContent = $("#main-container");
+const words = $("#words");
 
 const keyWords = {
-  "1": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
-  "2": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
-  "3": changeImgCrop.bind(null, {top: 382, right: 385, bottom: 762, left: 0}),
-  "4": changeImgCrop.bind(null, {top: 382, right: 800, bottom: 762, left: 385}, true),
+  "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
+  "two": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
+  "three": changeImgCrop.bind(null, {top: 382, right: 385, bottom: 762, left: 0}),
+  "for": changeImgCrop.bind(null, {top: 382, right: 800, bottom: 762, left: 385}, true),
 };
 
 function changeImgCrop(args={}, lastImage=false) {
@@ -39,6 +40,8 @@ function speechTranscript(e) {
     .toLowerCase();
     console.log(transcript);
 
+    // Live transcription
+    words.text(transcript);
     processCommand(transcript);
 }
 
