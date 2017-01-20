@@ -17,7 +17,6 @@ const keyWords = {
   "2": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
   "3": changeImgCrop.bind(null, {top: 382, right: 385, bottom: 762, left: 0}),
   "4": changeImgCrop.bind(null, {top: 382, right: 800, bottom: 762, left: 385}, true),
-  "": aLittleMore
 };
 
 function changeImgCrop(args={}, lastImage=false) {
