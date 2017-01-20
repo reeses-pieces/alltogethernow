@@ -17,6 +17,7 @@ const portrait = $("#portrait");
 const johnHead = $("#john-head");
 const paulHead = $("#paul-head");
 const georgeHead = $("#george-head");
+const ringoHead = $("#ringo-head");
 const littleMore = $("#little-more");
 
 const keyWords = {
@@ -24,9 +25,10 @@ const keyWords = {
   "two": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
   "three": changeImgCrop.bind(null, {top: 382, right: 385, bottom: 762, left: 0}),
   "for": changeImgCrop.bind(null, {top: 382, right: 800, bottom: 762, left: 385}, true),
-  "five": slideInPortraits.bind(johnHead, {left: "-130px"}),
-  "six": slideInPortraits.bind(paulHead, {right: "-135px"}),
-  "seven": slideInPortraits.bind(georgeHead, {top: "-135px"}),
+  "five": slideInPortraits.bind(johnHead, {left: "-102px"}),
+  "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
+  "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
+  "eight": slideInPortraits.bind(ringoHead, {bottom: "-102px"})
 
 };
 
@@ -74,7 +76,7 @@ function processCommand(transcript) {
 
 // Start with all the assets invisible
 assets.children().hide();
-$("#george-head").show();
+// ringoHead.show();
 
 recognition.addEventListener("result", speechTranscript);
 recognition.addEventListener("end", recognition.start);

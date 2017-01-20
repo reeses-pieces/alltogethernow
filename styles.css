@@ -70,18 +70,23 @@ body {
 }
 
 #john-head {
-  transform: scale(.5) rotate(90deg);
+  transform: scale(.6) rotate(90deg);
   left: -408px;
 }
 
 #paul-head {
-  transform: scale(.5) rotate(-90deg);
+  transform: scale(.6) rotate(-90deg);
   right: -408px;
 }
 
 #george-head {
-  transform: scale(.5) rotate(180deg);
+  transform: scale(.6) rotate(180deg);
   top: -408px;
+}
+
+#ringo-head {
+  transform: scale(.6);
+  bottom: -408px;
 }
 
 #words-container {
