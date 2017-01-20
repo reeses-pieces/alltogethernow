@@ -12,6 +12,7 @@ recognition.interimResults = true;
 
 const mainContent = $("#main-container");
 const words = $("#words");
+const portrait = $("#portrait");
 
 const keyWords = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -21,14 +22,14 @@ const keyWords = {
 };
 
 function changeImgCrop(args={}, lastImage=false) {
+  mainContent.append(portrait);
   $('#portrait').css('clip', `rect(${args.top}px,${args.right}px,${args.bottom}px,${args.left}px)`);
   if(lastImage) {
-    setTimeout(aLittleMore, 1000);
+    setTimeout(aLittleMore, 1100);
   }
 }
 
 function aLittleMore() {
-  // $("#portrait").addClass("hidden");
   mainContent.html("<p>Can I have a little more?</p>");
 }
 
