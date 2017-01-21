@@ -14,21 +14,23 @@ const assets = $("#assets");
 const mainContent = $("#main-container");
 const words = $("#words");
 const portrait = $("#portrait");
+const littleMore = $("#little-more");
 const johnHead = $("#john-head");
 const paulHead = $("#paul-head");
 const georgeHead = $("#george-head");
 const ringoHead = $("#ringo-head");
-const littleMore = $("#little-more");
+const altogether = $("#altogether");
 
 const keyWords = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
   "two": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
   "three": changeImgCrop.bind(null, {top: 382, right: 385, bottom: 762, left: 0}),
   "for": changeImgCrop.bind(null, {top: 382, right: 800, bottom: 762, left: 385}, true),
-  "five": slideInPortraits.bind(johnHead, {left: "-102px"}),
+  "five": slideInPortraits.bind(johnHead, {left: "-102px"}, true),
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
-  "eight": slideInPortraits.bind(ringoHead, {bottom: "-102px"})
+  "eight": slideInPortraits.bind(ringoHead, {bottom: "-102px"}),
+  "nine": slideInPortraits.bind(altogether)
 
 };
 
@@ -46,9 +48,11 @@ function aLittleMore() {
   littleMore.show();
 }
 
-function slideInPortraits(args={}) {
-  console.log(this);
-  // assets.children().hide();
+// If calling first image, hide everything else. Otherwise, keep the other images visible
+function slideInPortraits(args={}, first=false) {
+  if(first) {
+    assets.children().hide();
+  }
   this.show();
   this.animate(args, 500);
 }
@@ -76,7 +80,7 @@ function processCommand(transcript) {
 
 // Start with all the assets invisible
 assets.children().hide();
-// ringoHead.show();
+// $("#altogether").show();
 
 recognition.addEventListener("result", speechTranscript);
 recognition.addEventListener("end", recognition.start);

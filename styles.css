@@ -34,12 +34,18 @@ body {
   color: white;
 }
 
-#main-container p {
-  font-size: 1.5em;
-  position: fixed;
+/*#assets {
+  position: absolute;
   top: 50%;
   left: 50%;
-  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}*/
+
+.centered {
+  font-size: 1.5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
@@ -85,6 +91,11 @@ body {
 #ringo-head {
   transform: scale(.64);
   bottom: -408px;
+}
+
+#altogether {
+  transform: scale(.4);
+  margin: 50px auto;
 }
 
 #words-container {
