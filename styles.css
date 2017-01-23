@@ -125,8 +125,8 @@ h2 {
 }
 
 #heart {
-  animation: heartbeat 2s 1;
-  transform: scale( .6 ) translate(-13%, -50%)
+  transform: scale( .6 ) translate(-13%, -50%);
+  animation: heartbeat 2s 1, heartballoon 8s linear 3s 1;
 }
 
 @keyframes heartbeat
@@ -154,6 +154,26 @@ h2 {
   100%
   {
     transform: scale( .6 ) translate(-13%, -50%);
+  }
+}
+
+@keyframes heartballoon
+{
+  0%
+  {
+    transform: scale( .6 ) translate(-13%, -50%);
+  }
+  25%
+  {
+    transform: scale( .6 ) translate(-13%, -150%) rotate(10deg);
+  }
+  50%
+  {
+    transform: scale( .6 ) translate(-13%, -300%) rotate(0deg);
+  } 
+  100%
+  {
+    transform: scale( .6 ) translate(-13%, -450%) rotate(-10deg);
   }
 }
 
