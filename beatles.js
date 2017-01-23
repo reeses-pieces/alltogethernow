@@ -62,7 +62,7 @@ function slideInPortraits(args={}, first=false) {
 
 function iLoveYou() {
   assets.children().hide();
-  loveYouText.css("left", "30%");
+  loveYouText.css("left", "38%");
   loveYouText.show();
   heart.show();
 }
