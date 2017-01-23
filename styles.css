@@ -6,7 +6,7 @@
 html {
   box-sizing: border-box;
   font-size: 30px;
-  font-family: "YellowSubmarine", "Helvetica", serif;
+  font-family: "Helvetica", serif;
   letter-spacing: 2px;
 }
 
@@ -37,6 +37,7 @@ body {
 }
 
 h2 {
+  font-family: "YellowSubmarine";
   font-size: 1.5rem;
   margin: 30px auto;
   color: black;
@@ -157,7 +158,7 @@ h2 {
 }
 
 #words-container {
-  max-width: 300px;
+  max-width: 450px;
   margin:50px auto;
   background:white;
   border-radius:5px;
