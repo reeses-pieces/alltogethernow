@@ -20,6 +20,7 @@ const paulHead = $("#paul-head");
 const georgeHead = $("#george-head");
 const ringoHead = $("#ringo-head");
 const altogether = $("#altogether");
+const heart = $("#heart");
 
 const keyWords = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -30,7 +31,8 @@ const keyWords = {
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
   "eight": slideInPortraits.bind(ringoHead, {bottom: "-102px"}),
-  "nine": slideInPortraits.bind(altogether)
+  "nine": slideInPortraits.bind(altogether),
+  "10": iLoveYou
 
 };
 
@@ -55,6 +57,11 @@ function slideInPortraits(args={}, first=false) {
   }
   this.show();
   this.animate(args, 500);
+}
+
+function iLoveYou() {
+  assets.children().hide();
+  heart.show();
 }
 
 

@@ -98,6 +98,38 @@ body {
   margin: 50px auto;
 }
 
+#heart {
+  animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( .5 );
+  }
+  20%
+  {
+    transform: scale( .75 );
+  }
+  40%
+  {
+    transform: scale( .5 );
+  }
+  60%
+  {
+    transform: scale( .75 );
+  }
+  80%
+  {
+    transform: scale( .5 );
+  }
+  100%
+  {
+    transform: scale( .5 );
+  }
+}
+
 #words-container {
   max-width:500px;
   margin:50px auto;
