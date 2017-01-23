@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+  audioBtnListener();
 });
 
 const assets = $("#assets");
@@ -78,3 +78,9 @@ function iLoveYou() {
 // Start with all the assets invisible
 assets.children().hide();
 // $("#altogether").show();
+
+function audioBtnListener() {
+  $("#main-audio").on("play", function() {
+    console.log('Started!');
+  });
+}
