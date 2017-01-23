@@ -1,7 +1,13 @@
+@font-face {
+    font-family:"YellowSubmarine";
+    src: url("beatles.ttf") /* TTF file for CSS3 browsers */
+}
+
 html {
   box-sizing: border-box;
   font-size: 30px;
-  font-family: "Helvetica", serif;
+  font-family: "YellowSubmarine", "Helvetica", serif;
+  letter-spacing: 2px;
 }
 
 *, *:before, *:after {
@@ -17,6 +23,13 @@ body {
   background-size:cover;
   align-items: center;
   justify-content: center;
+  background-image:
+  radial-gradient(circle at 100% 150%, #ffc600 24%, #CECA00 25%, #CECA00 28%, #ffc600 29%, #ffc600 36%, #CECA00 36%, #CECA00 40%, transparent 40%, transparent),
+  radial-gradient(circle at 0    150%, #ffc600 24%, #CECA00 25%, #CECA00 28%, #ffc600 29%, #ffc600 36%, #CECA00 36%, #CECA00 40%, transparent 40%, transparent),
+  radial-gradient(circle at 50%  100%, #CECA00 10%, #ffc600 11%, #ffc600 23%, #CECA00 24%, #CECA00 30%, #ffc600 31%, #ffc600 43%, #CECA00 44%, #CECA00 50%, #ffc600 51%, #ffc600 63%, #CECA00 64%, #CECA00 71%, transparent 71%, transparent),
+  radial-gradient(circle at 100% 50%, #CECA00 5%, #ffc600 6%, #ffc600 15%, #CECA00 16%, #CECA00 20%, #ffc600 21%, #ffc600 30%, #CECA00 31%, #CECA00 35%, #ffc600 36%, #ffc600 45%, #CECA00 46%, #CECA00 49%, transparent 50%, transparent),
+  radial-gradient(circle at 0    50%, #CECA00 5%, #ffc600 6%, #ffc600 15%, #CECA00 16%, #CECA00 20%, #ffc600 21%, #ffc600 30%, #CECA00 31%, #CECA00 35%, #ffc600 36%, #ffc600 45%, #CECA00 46%, #CECA00 49%, transparent 50%, transparent);
+  background-size:100px 50px;
 }
 
 .hidden {
@@ -24,21 +37,26 @@ body {
 }
 
 h2 {
+  font-size: 1.5rem;
   margin: 30px auto;
-  color: white;
+  color: black;
   text-align: center;
+  text-shadow: 3px 3px 0 #F3C010;
 }
 
 #main-container {
   margin: auto;
   width: 1024px;
   height: 768px;
-  border:5px solid blue;
+  /*border:5px solid orange;*/
+  border-radius: 15px;
   position: relative;
   overflow: hidden;
   text-align: center;
   vertical-align: middle;
-  color: white;
+  background: white;
+  color: black;
+  box-shadow:0 0 5px 5px rgba(0,0,0,0.1)
 }
 
 /*#assets {
