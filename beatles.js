@@ -2,14 +2,6 @@ $(document).ready(function() {
   
 });
 
-
-window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-
-const recognition = new SpeechRecognition();
-// Live visual feedback to show what you are speaking
-// recognition.interimResults = true;
-
 const assets = $("#assets");
 const mainContent = $("#main-container");
 const words = $("#words");
@@ -83,32 +75,6 @@ function iLoveYou() {
   heart.show();
 }
 
-
-// Parse speech
-function speechTranscript(e) {
-  const transcript = Array.from(e.results)
-    .map(result => result[0])
-    .map(result => result.transcript).join('')
-    .trim()
-    .toLowerCase();
-    console.log(transcript);
-
-    // Live transcription
-    words.text(transcript);
-    processCommand(transcript);
-}
-
-function processCommand(transcript) {
-  transcript = alternates[transcript] || transcript;
-  if(keyWords[transcript]) {
-    keyWords[transcript]();
-  }
-}
-
 // Start with all the assets invisible
 assets.children().hide();
 // $("#altogether").show();
-
-recognition.addEventListener("result", speechTranscript);
-recognition.addEventListener("end", recognition.start);
-recognition.start();
