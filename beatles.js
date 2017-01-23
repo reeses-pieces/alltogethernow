@@ -8,7 +8,7 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 
 const recognition = new SpeechRecognition();
 // Live visual feedback to show what you are speaking
-recognition.interimResults = true;
+// recognition.interimResults = true;
 
 const assets = $("#assets");
 const mainContent = $("#main-container");
@@ -21,6 +21,7 @@ const georgeHead = $("#george-head");
 const ringoHead = $("#ringo-head");
 const altogether = $("#altogether");
 const heart = $("#heart");
+const loveYouText = $("#love-you-text");
 
 const keyWords = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -61,6 +62,8 @@ function slideInPortraits(args={}, first=false) {
 
 function iLoveYou() {
   assets.children().hide();
+  loveYouText.css("left", "30%");
+  loveYouText.show();
   heart.show();
 }
 
