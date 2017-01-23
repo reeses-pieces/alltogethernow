@@ -27,14 +27,29 @@ const keyWords = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
   "two": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
   "three": changeImgCrop.bind(null, {top: 382, right: 385, bottom: 762, left: 0}),
-  "for": changeImgCrop.bind(null, {top: 382, right: 800, bottom: 762, left: 385}, true),
+  "four": changeImgCrop.bind(null, {top: 382, right: 800, bottom: 762, left: 385}, true),
   "five": slideInPortraits.bind(johnHead, {left: "-102px"}, true),
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
   "eight": slideInPortraits.bind(ringoHead, {bottom: "-102px"}),
   "nine": slideInPortraits.bind(altogether),
-  "10": iLoveYou
+  "ten": iLoveYou
+};
 
+// Alternates for common transcriptions
+const alternates = {
+  "1": "one",
+  "2": "two",
+  "to": "two",
+  "3": "three",
+  "4": "four",
+  "for": "four",
+  "5": "five",
+  "6": "six",
+  "7": "seven",
+  "8": "eight",
+  "9": "nine",
+  "10": "ten"
 };
 
 function changeImgCrop(args={}, lastImage=false) {
@@ -83,6 +98,7 @@ function speechTranscript(e) {
 }
 
 function processCommand(transcript) {
+  transcript = alternates[transcript] || transcript;
   if(keyWords[transcript]) {
     keyWords[transcript]();
   }
