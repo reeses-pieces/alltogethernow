@@ -18,8 +18,8 @@ const loveYouText = $("#love-you-text");
 const keyWords = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
   "two": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
-  "three": changeImgCrop.bind(null, {top: 382, right: 385, bottom: 762, left: 0}),
-  "four": changeImgCrop.bind(null, {top: 382, right: 800, bottom: 762, left: 385}, true),
+  "three": changeImgCrop.bind(null, {top: 387, right: 385, bottom: 762, left: 0}),
+  "four": changeImgCrop.bind(null, {top: 387, right: 800, bottom: 762, left: 385}),
   "five": slideInPortraits.bind(johnHead, {left: "-102px"}, true),
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
@@ -45,13 +45,10 @@ const alternates = {
   "10": "ten"
 };
 
-function changeImgCrop(args={}, lastImage=false) {
-  assets.children().hide()
+function changeImgCrop(args={}) {
+  assets.children().hide();
   portrait.show();
   $('#portrait').css('clip', `rect(${args.top}px,${args.right}px,${args.bottom}px,${args.left}px)`);
-  if(lastImage) {
-    setTimeout(aLittleMore, 1100);
-  }
 }
 
 function aLittleMore() {
@@ -81,6 +78,18 @@ assets.children().hide();
 
 function audioBtnListener() {
   $("#main-audio").on("play", function() {
-    console.log('Started!');
+    startAnimation();
   });
+}
+
+function runKeyWord(keyWord) {
+  keyWords[keyWord]();
+}
+
+function startAnimation() {
+  // setTimeout(runKeyWord.bind(null, "one"), 10500);
+  setTimeout(keyWords.one, 10500);
+  setTimeout(keyWords.two, 11200);
+  setTimeout(keyWords.three, 11890);
+  setTimeout(keyWords.four, 12500);
 }
