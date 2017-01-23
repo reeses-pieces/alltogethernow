@@ -10,7 +10,8 @@ html {
 
 body {
   padding: 0;
-  display: flex;
+  margin: auto;
+  /*display: flex;*/
   background:#000000;
   min-height:100vh;
   background-size:cover;
@@ -20,6 +21,12 @@ body {
 
 .hidden {
   display: none;
+}
+
+h2 {
+  margin: 30px auto;
+  color: white;
+  text-align: center;
 }
 
 #main-container {
@@ -99,7 +106,7 @@ body {
 }
 
 #heart {
-  animation: heartbeat 3s 1;
+  animation: heartbeat 2s 1;
   transform: scale( .6 ) translate(-13%, -50%)
 }
 
@@ -132,7 +139,7 @@ body {
 }
 
 #words-container {
-  max-width:500px;
+  max-width: 300px;
   margin:50px auto;
   background:white;
   border-radius:5px;
@@ -140,10 +147,8 @@ body {
   box-shadow:10px 10px 0 rgba(0,0,0,0.1);
   background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
   background-size: 100% 3rem;
-  position: absolute;
-  bottom: 10%;
   color: black;
-  text-align: left;
+  text-align: center
 }
 
 /*#words-container:before {

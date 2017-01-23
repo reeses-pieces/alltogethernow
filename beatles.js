@@ -46,6 +46,7 @@ const alternates = {
   "for": "four",
   "5": "five",
   "6": "six",
+  "sex": "six",
   "7": "seven",
   "8": "eight",
   "9": "nine",
