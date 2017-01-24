@@ -118,57 +118,8 @@ h2 {
   animation: heartbeat 2s 1;
 }
 
-@keyframes heartbeat
-{
-  0%
-  {
-    transform: scale( .6 ) translate(200%, -50%) rotate(30deg);
-  }
-  20%
-  {
-    transform: scale( .6 ) translate(-13%, -50%) rotate(-10deg);
-  }
-  40%
-  {
-    transform: scale( .75 ) translate(-13%, -50%);
-  }
-  60%
-  {
-    transform: scale( .6 ) translate(-13%, -50%);
-  }
-  80%
-  {
-    transform: scale( .75 ) translate(-13%, -50%);
-  }
-  100%
-  {
-    transform: scale( .6 ) translate(-13%, -50%);
-  }
-}
-
-/*@keyframes heartballoon
-{
-  0%
-  {
-    transform: scale( .6 ) translate(-13%, -50%);
-  }
-  25%
-  {
-    transform: scale( .6 ) translate(-13%, -188%) rotate(10deg);
-  }
-  50%
-  {
-    transform: scale( .6 ) translate(-13%, -321%) rotate(0deg);
-  } 
-  100%
-  {
-    transform: scale( .6 ) translate(-13%, -450%) rotate(-5deg);
-  }
-}*/
-
 audio {
   box-shadow:10px 10px 0 rgba(0,0,0,0.1);
-
 }
 
 #audio-container {
