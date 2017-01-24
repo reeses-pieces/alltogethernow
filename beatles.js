@@ -23,22 +23,24 @@ const aPaul = $("#a-paul");
 const bJohn = $("#b-john");
 const cRingo = $("#c-ringo");
 const dGeorge = $("#d-george");
+const friendTea = $("#friend-tea");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
   "two": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
   "three": changeImgCrop.bind(null, {top: 387, right: 385, bottom: 762, left: 0}),
   "four": changeImgCrop.bind(null, {top: 387, right: 800, bottom: 762, left: 385}),
-  "can i have a little more": aLittleMore,
+  "little more": displayText.bind(littleMore, ''),
   "five": slideInPortraits.bind(johnHead, {left: "-102px"}, true),
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
   "eight": slideInPortraits.bind(ringoHead, {bottom: "-102px"}),
   "ten": iLoveYou,
-  "a": alphaImage.bind(aPaul, ''),
-  "b": alphaImage.bind(bJohn, ''),
-  "c": alphaImage.bind(cRingo, ''),
-  "d": alphaImage.bind(dGeorge, ''),
+  "a": alphaImage.bind(aPaul),
+  "b": alphaImage.bind(bJohn),
+  "c": alphaImage.bind(cRingo),
+  "d": alphaImage.bind(dGeorge),
+  "friend to tea": displayText.bind(friendTea)
 };
 
 // Timings for keyframes
@@ -47,7 +49,7 @@ const timings = {
   "11.2": "two",
   "11.9": "three",
   "12.5": "four",
-  "13.1": "can i have a little more",
+  "13.1": "little more",
   "15.7": "five",
   "16.2": "six",
   "16.9": "seven",
@@ -56,7 +58,8 @@ const timings = {
   "20.7": "a",
   "21.4": "b",
   "22.0": "c",
-  "22.6": "d"
+  "22.6": "d",
+  "23.2": "friend to tea"
 };
 
 function changeImgCrop(args={}) {
@@ -65,9 +68,9 @@ function changeImgCrop(args={}) {
   $('#portrait').css('clip', `rect(${args.top}px,${args.right}px,${args.bottom}px,${args.left}px)`);
 }
 
-function aLittleMore() {
+function displayText() {
   assets.children().hide();
-  littleMore.show();
+  this.show();
 }
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
