@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  handleAnimation();
+  $(audio).on('timeupdate', handleAnimation());
+  $(window).on('keyup', keyboardControls);
 });
 
 const audio = document.querySelector("#main-audio");
@@ -12,7 +13,7 @@ const johnHead = $("#john-head");
 const paulHead = $("#paul-head");
 const georgeHead = $("#george-head");
 const ringoHead = $("#ringo-head");
-const altogether = $("#altogether");
+const altogether = $("#altogether"); // Not used
 const heart = $("#heart");
 const loveYouText = $("#love-you-text");
 
@@ -26,7 +27,6 @@ const keyWords = {
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
   "eight": slideInPortraits.bind(ringoHead, {bottom: "-102px"}),
-  "nine": slideInPortraits.bind(altogether),
   "ten": iLoveYou
 };
 
@@ -41,7 +41,7 @@ const timings = {
   "16.2": "six",
   "16.9": "seven",
   "17.2": "eight",
-  "17.5": "nine",
+  // "17.5": "nine",
   "17.9": "ten"
 };
 
@@ -70,6 +70,16 @@ function iLoveYou() {
   loveYouText.css("left", "38%");
   loveYouText.show();
   heart.show();
+}
+
+function keyboardControls(e) {
+  if (e.keyCode === 32) {
+    if(audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
 }
 
 // Start with all the assets invisible
