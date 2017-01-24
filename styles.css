@@ -4,10 +4,10 @@
 }
 
 html {
-  box-sizing: border-box;
-  font-size: 30px;
-  font-family: "Helvetica", serif;
+  font-family: "Sofia", "Georgia", serif;
   letter-spacing: 2px;
+  font-size: 34px;
+  box-sizing: border-box;
 }
 
 *, *:before, *:after {
@@ -45,9 +45,8 @@ h2 {
 
 #main-container {
   margin: auto;
-  width: 1024px;
-  height: 768px;
-  /*border:5px solid orange;*/
+  max-width: 75vw;
+  min-height: 75vh;
   border-radius: 15px;
   position: relative;
   overflow: hidden;
@@ -117,18 +116,18 @@ h2 {
 
 #heart {
   transform: scale( .6 ) translate(-13%, -50%);
-  animation: heartbeat 2s 1, heartballoon 8s linear 3s 1;
+  animation: heartbeat 2s 1;
 }
 
 @keyframes heartbeat
 {
   0%
   {
-    transform: scale( .6 ) translate(200%, -50%);
+    transform: scale( .6 ) translate(200%, -50%) rotate(30deg);
   }
   20%
   {
-    transform: scale( .6 ) translate(-13%, -50%);
+    transform: scale( .6 ) translate(-13%, -50%) rotate(-10deg);
   }
   40%
   {
@@ -148,7 +147,7 @@ h2 {
   }
 }
 
-@keyframes heartballoon
+/*@keyframes heartballoon
 {
   0%
   {
@@ -166,7 +165,7 @@ h2 {
   {
     transform: scale( .6 ) translate(-13%, -450%) rotate(-5deg);
   }
-}
+}*/
 
 audio {
   box-shadow:10px 10px 0 rgba(0,0,0,0.1);
@@ -175,7 +174,7 @@ audio {
 
 #audio-container {
   max-width: 450px;
-  margin:50px auto;
+  margin:25px auto;
   border-radius:5px;
   padding: 5px 3px;
   color: black;

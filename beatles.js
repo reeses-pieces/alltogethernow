@@ -41,8 +41,7 @@ const timings = {
   "16.2": "six",
   "16.9": "seven",
   "17.2": "eight",
-  // "17.5": "nine",
-  "17.9": "ten"
+  "18.3": "ten"
 };
 
 function changeImgCrop(args={}) {
