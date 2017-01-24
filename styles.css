@@ -16,7 +16,6 @@ html {
 
 body {
   margin: auto;
-  background:#000000;
   min-height:100vh;
   background-size:cover;
   align-items: center;
@@ -45,8 +44,8 @@ h2 {
 
 #main-container {
   margin: auto;
-  max-width: 75vw;
-  min-height: 75vh;
+  width: 1024px;
+  height: 768px;
   border-radius: 15px;
   position: relative;
   overflow: hidden;
@@ -71,7 +70,7 @@ h2 {
   display: block;
   margin: auto;
   position: absolute;
-  right: 13%;
+  /*right: 13%;*/
   clip: rect(800px,800px,800px,0px);
 }
 
