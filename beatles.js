@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $(audio).on('timeupdate', handleAnimation());
+  $(audio).on("paused", stopAudioChecker());
   $(window).on('keyup', keyboardControls);
 });
 
@@ -92,15 +93,27 @@ function getCurrentAudioTime() {
   return audio.currentTime.toFixed(1);
 }
 
+function currentTimeInTimings() {
+  return timings[getCurrentAudioTime()];
+}
+
+function audioChecker() {
+  console.log(getCurrentAudioTime());
+  if(currentTimeInTimings()) {
+    let command = timings[getCurrentAudioTime()];
+    console.log('command', command);
+    keyWords[command]();
+  }
+}
+
+function stopAudioChecker() {
+
+}
+
 function handleAnimation() {
 // Using timeupdate event on audio is not responsive enough. Therefore, a
 // manual interval check was set up for every 100 ms
-    setInterval(function() {
-      console.log(getCurrentAudioTime());
-      if(timings[getCurrentAudioTime()]) {
-        let command = timings[getCurrentAudioTime()];
-        console.log('command', command);
-        keyWords[command]();
-      }
-    }, 100);
+  setInterval(function() {
+    audioChecker();
+  }, 100);
 }
