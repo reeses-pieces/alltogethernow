@@ -111,7 +111,7 @@ function currentTimeInTimings() {
   return timings[getCurrentAudioTime()];
 }
 
-function audioChecker() {
+function timingChecker() {
   console.log(getCurrentAudioTime());
   if(currentTimeInTimings()) {
     let command = timings[getCurrentAudioTime()];
@@ -124,7 +124,7 @@ const startAudioEventListener = function() {
   $(audio).on('play', function() {
     console.log('starting');
     checker = setInterval(function() {
-      audioChecker();
+      timingChecker();
     }, 100);
   });
 };
