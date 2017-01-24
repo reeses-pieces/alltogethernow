@@ -82,12 +82,6 @@ function keyboardControls(e) {
   }
 }
 
-// Start with all the assets invisible
-assets.children().hide();
-// $("#altogether").show();
-// DEBUG!
-audio.currentTime = 9;
-
 // Get current time
 function getCurrentAudioTime() {
   return audio.currentTime.toFixed(1);
@@ -117,3 +111,9 @@ function handleAnimation() {
     audioChecker();
   }, 100);
 }
+
+// Start with all the assets invisible
+assets.children().hide();
+// $("#alpha-table").show();
+// DEBUG!
+audio.currentTime = 9;

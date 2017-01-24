@@ -118,6 +118,20 @@ h2 {
   animation: heartbeat 2s 1;
 }
 
+/*Alphabet*/
+
+#alpha-table, td {
+  margin: auto;
+  /*border: 2px solid black;*/
+  padding: 50px;
+}
+
+.alphabet {
+  transform: scale(1.2);
+  border-radius: 50%;
+  border: 3px solid orange;
+}
+
 audio {
   box-shadow:10px 10px 0 rgba(0,0,0,0.1);
 }
