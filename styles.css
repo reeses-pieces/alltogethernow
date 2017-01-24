@@ -130,6 +130,7 @@ h2 {
   transform: scale(1.2);
   border-radius: 50%;
   border: 3px solid orange;
+  opacity: 0;
 }
 
 audio {

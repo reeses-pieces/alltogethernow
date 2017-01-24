@@ -17,6 +17,11 @@ const ringoHead = $("#ringo-head");
 const altogether = $("#altogether"); // Not used
 const heart = $("#heart");
 const loveYouText = $("#love-you-text");
+const alphaTable = $("#alpha-table");
+const aPaul = $("#a-paul");
+const bJohn = $("#b-john");
+const cRingo = $("#c-ringo");
+const dGeorge = $("#d-george");
 
 const keyWords = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -28,7 +33,11 @@ const keyWords = {
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
   "eight": slideInPortraits.bind(ringoHead, {bottom: "-102px"}),
-  "ten": iLoveYou
+  "ten": iLoveYou,
+  "a": alphaImage.bind(aPaul, ''),
+  "b": alphaImage.bind(bJohn, ''),
+  "c": alphaImage.bind(cRingo, ''),
+  "d": alphaImage.bind(dGeorge, ''),
 };
 
 // Alternates for common transcriptions
@@ -42,7 +51,11 @@ const timings = {
   "16.2": "six",
   "16.9": "seven",
   "17.2": "eight",
-  "18.3": "ten"
+  "18.3": "ten",
+  "20.7": "a",
+  "21.4": "b",
+  "22.0": "c",
+  "22.6": "d"
 };
 
 function changeImgCrop(args={}) {
@@ -70,6 +83,12 @@ function iLoveYou() {
   loveYouText.css("left", "38%");
   loveYouText.show();
   heart.show();
+}
+
+function alphaImage() {
+  assets.children().hide();
+  alphaTable.show();
+  this.css("opacity", "1");
 }
 
 function keyboardControls(e) {
