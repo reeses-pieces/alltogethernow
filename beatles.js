@@ -1,9 +1,10 @@
 $(document).ready(function() {
-  $(audio).on('timeupdate', handleAnimation());
-  $(audio).on("paused", stopAudioChecker());
+  startAudioEventListener();
+  stopAudioEventListener();
   $(window).on('keyup', keyboardControls);
 });
 
+let checker; // Var for interval checker
 const audio = document.querySelector("#main-audio");
 const assets = $("#assets");
 const mainContent = $("#main-container");
@@ -23,7 +24,7 @@ const bJohn = $("#b-john");
 const cRingo = $("#c-ringo");
 const dGeorge = $("#d-george");
 
-const keyWords = {
+const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
   "two": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
   "three": changeImgCrop.bind(null, {top: 387, right: 385, bottom: 762, left: 0}),
@@ -40,7 +41,7 @@ const keyWords = {
   "d": alphaImage.bind(dGeorge, ''),
 };
 
-// Alternates for common transcriptions
+// Timings for keyframes
 const timings = {
   "10.5": "one",
   "11.2": "two",
@@ -115,20 +116,29 @@ function audioChecker() {
   if(currentTimeInTimings()) {
     let command = timings[getCurrentAudioTime()];
     console.log('command', command);
-    keyWords[command]();
+    keyFrames[command]();
   }
 }
 
-function stopAudioChecker() {
+const startAudioEventListener = function() {
+  $(audio).on('play', function() {
+    console.log('starting');
+    checker = setInterval(function() {
+      audioChecker();
+    }, 100);
+  });
+};
 
-}
+const stopAudioEventListener = function() {
+  $(audio).on("pause", function() {
+    console.log('clearing');
+    clearInterval(checker);
+  });
+};
 
 function handleAnimation() {
 // Using timeupdate event on audio is not responsive enough. Therefore, a
 // manual interval check was set up for every 100 ms
-  setInterval(function() {
-    audioChecker();
-  }, 100);
 }
 
 // Start with all the assets invisible
