@@ -1,7 +1,8 @@
 $(document).ready(function() {
-  audioBtnListener();
+  handleAnimation();
 });
 
+const audio = document.querySelector("#main-audio");
 const assets = $("#assets");
 const mainContent = $("#main-container");
 const words = $("#words");
@@ -29,20 +30,17 @@ const keyWords = {
 };
 
 // Alternates for common transcriptions
-const alternates = {
-  "1": "one",
-  "2": "two",
-  "to": "two",
-  "3": "three",
-  "4": "four",
-  "for": "four",
-  "5": "five",
-  "6": "six",
-  "sex": "six",
-  "7": "seven",
-  "8": "eight",
-  "9": "nine",
-  "10": "ten"
+const timings = {
+  "10.5": "one",
+  "11.2": "two",
+  "11.9": "three",
+  "12.5": "four"
+  // "5": "five",
+  // "6": "six",
+  // "sex": "six",
+  // "7": "seven",
+  // "8": "eight",
+  // "9": "nine",
 };
 
 function changeImgCrop(args={}) {
@@ -76,20 +74,20 @@ function iLoveYou() {
 assets.children().hide();
 // $("#altogether").show();
 
-function audioBtnListener() {
-  $("#main-audio").on("play", function() {
-    startAnimation();
-  });
+// Get current time
+function getCurrentAudioTime() {
+  return audio.currentTime.toFixed(1);
 }
 
-function runKeyWord(keyWord) {
-  keyWords[keyWord]();
-}
-
-function startAnimation() {
-  // setTimeout(runKeyWord.bind(null, "one"), 10500);
-  setTimeout(keyWords.one, 10500);
-  setTimeout(keyWords.two, 11200);
-  setTimeout(keyWords.three, 11890);
-  setTimeout(keyWords.four, 12500);
+function handleAnimation() {
+// Using timeupdate event on audio is not responsive enough. Therefore, a
+// manual interval check was set up for every 100 ms
+    setInterval(function() {
+      console.log(getCurrentAudioTime());
+      if(timings[getCurrentAudioTime()]) {
+        let command = timings[getCurrentAudioTime()];
+        console.log('command', command);
+        keyWords[command]();
+      }
+    }, 100);
 }
