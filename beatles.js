@@ -21,6 +21,7 @@ const keyWords = {
   "two": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
   "three": changeImgCrop.bind(null, {top: 387, right: 385, bottom: 762, left: 0}),
   "four": changeImgCrop.bind(null, {top: 387, right: 800, bottom: 762, left: 385}),
+  "can i have a little more": aLittleMore,
   "five": slideInPortraits.bind(johnHead, {left: "-102px"}, true),
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
@@ -34,13 +35,14 @@ const timings = {
   "10.5": "one",
   "11.2": "two",
   "11.9": "three",
-  "12.5": "four"
-  // "5": "five",
-  // "6": "six",
-  // "sex": "six",
-  // "7": "seven",
-  // "8": "eight",
-  // "9": "nine",
+  "12.5": "four",
+  "13.1": "can i have a little more",
+  "15.7": "five",
+  "16.2": "six",
+  "16.9": "seven",
+  "17.2": "eight",
+  "17.5": "nine",
+  "17.9": "ten"
 };
 
 function changeImgCrop(args={}) {
@@ -73,6 +75,8 @@ function iLoveYou() {
 // Start with all the assets invisible
 assets.children().hide();
 // $("#altogether").show();
+// DEBUG!
+audio.currentTime = 9;
 
 // Get current time
 function getCurrentAudioTime() {
