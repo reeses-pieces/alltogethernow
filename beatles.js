@@ -68,7 +68,8 @@ const timings = {
   "25.8": "e",
   "26.4": "f",
   "27.0": "g",
-  "27.6": "i"
+  "27.6": "i",
+  "28.7": "ten"
 };
 
 function changeImgCrop(args={}) {
@@ -88,7 +89,7 @@ function slideInPortraits(args={}, first=false) {
     assets.children().hide();
   }
   this.show();
-  this.animate(args, 500);
+  this.animate(args, 300);
 }
 
 function iLoveYou() {
@@ -154,12 +155,7 @@ const stopAudioEventListener = function() {
   });
 };
 
-function handleAnimation() {
-// Using timeupdate event on audio is not responsive enough. Therefore, a
-// manual interval check was set up for every 100 ms
-}
-
-// Start with all the assets invisible
+// Start with all the assets hidden
 assets.children().hide();
 // $("#beatles-outside").show();
 // DEBUG!
