@@ -45,7 +45,7 @@ const keyFrames = {
   "f": showImage.bind(beatlesOutside, {top: 69, left: 64}),
   "g": showImage.bind(beatlesOutside, {top: 69, left: 26}),
   "i": showImage.bind(beatlesOutside, {top: 69, left: 8}),
-  "j": showImage.bind(beatlesOutside, {top: 50, left: 50} ,true),
+  "j": showImage.bind(beatlesOutside, {top: 50, left: 50, centered: true}),
 };
 
 // Timings for keyframes
@@ -107,17 +107,26 @@ function alphaImage() {
   this.css("opacity", "1");
 }
 
-function showImage(args={}, full=false) {
+function showImage(args={}) {
   assets.children().hide();
   this.show();
-  this.css({'top': `${args.top}%`, 'left': `${args.left}%`});
-  if(full) {
+  if(args) {
+    handleArgs.call(this, args);
+  }
+}
+
+function handleArgs(args) {
+  if(args.top || args.left) {
+    this.css({'top': `${args.top}%`, 'left': `${args.left}%`});
+  }
+  if(args.centered) {
     this.css({'max-width': "100%", 'max-height': "100%"});
   }
 }
 
 function keyboardControls(e) {
-  if (e.keyCode === 32) {
+  // Space or Enter
+  if (e.keyCode === 32 || e.keyCode === 13) {
     if(audio.paused) {
       audio.play();
     } else {
