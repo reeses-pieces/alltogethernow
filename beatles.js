@@ -24,6 +24,7 @@ const bJohn = $("#b-john");
 const cRingo = $("#c-ringo");
 const dGeorge = $("#d-george");
 const friendTea = $("#friend-tea");
+const beatlesOutside = $("#beatles-outside");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -40,7 +41,11 @@ const keyFrames = {
   "b": alphaImage.bind(bJohn),
   "c": alphaImage.bind(cRingo),
   "d": alphaImage.bind(dGeorge),
-  "friend to tea": displayText.bind(friendTea)
+  "friend to tea": displayText.bind(friendTea),
+  "e": showImage.bind(beatlesOutside, {top: 69, left: 93}),
+  "f": showImage.bind(beatlesOutside, {top: 69, left: 64}),
+  "g": showImage.bind(beatlesOutside, {top: 69, left: 26}),
+  "i": showImage.bind(beatlesOutside, {top: 69, left: 8}),
 };
 
 // Timings for keyframes
@@ -59,7 +64,11 @@ const timings = {
   "21.4": "b",
   "22.0": "c",
   "22.6": "d",
-  "23.2": "friend to tea"
+  "23.2": "friend to tea",
+  "25.8": "e",
+  "26.4": "f",
+  "27.0": "g",
+  "27.6": "i"
 };
 
 function changeImgCrop(args={}) {
@@ -93,6 +102,12 @@ function alphaImage() {
   assets.children().hide();
   alphaTable.show();
   this.css("opacity", "1");
+}
+
+function showImage(args={}) {
+  assets.children().hide();
+  this.show();
+  this.css({'top': `${args.top}%`, 'left': `${args.left}%`});
 }
 
 function keyboardControls(e) {
@@ -146,6 +161,6 @@ function handleAnimation() {
 
 // Start with all the assets invisible
 assets.children().hide();
-// $("#alpha-table").show();
+// $("#beatles-outside").show();
 // DEBUG!
-audio.currentTime = 9;
+// audio.currentTime = 22;
