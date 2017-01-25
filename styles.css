@@ -132,7 +132,18 @@ h2 {
   opacity: 0;
 }
 
-#beatles-outside {
+/*Sail the Ship*/
+#waves {
+  position: absolute;
+  bottom: -50px;
+  left: 0px;
+  z-index: 3;
+}
+
+#ship {
+  position: absolute;
+  top: 8%;
+  left: 10%;
 }
 
 audio {

@@ -70,7 +70,8 @@ const timings = {
   "27.0": "g",
   "27.6": "i",
   "28.0": "j",
-  "28.7": "ten"
+  "28.7": "ten",
+  "30.9": "ship"
 };
 
 function changeImgCrop(args={}) {
@@ -161,6 +162,6 @@ const stopAudioEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-// $("#beatles-outside").show();
+$(".sail").show();
 // DEBUG!
 // audio.currentTime = 22;
