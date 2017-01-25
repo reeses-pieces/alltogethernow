@@ -15,7 +15,6 @@ const johnHead = $("#john-head");
 const paulHead = $("#paul-head");
 const georgeHead = $("#george-head");
 const ringoHead = $("#ringo-head");
-const altogether = $("#altogether"); // Not used
 const heart = $("#heart");
 const loveYouText = $("#love-you-text");
 const alphaTable = $("#alpha-table");
@@ -46,6 +45,7 @@ const keyFrames = {
   "f": showImage.bind(beatlesOutside, {top: 69, left: 64}),
   "g": showImage.bind(beatlesOutside, {top: 69, left: 26}),
   "i": showImage.bind(beatlesOutside, {top: 69, left: 8}),
+  "j": showImage.bind(beatlesOutside, {top: 50, left: 50} ,true),
 };
 
 // Timings for keyframes
@@ -69,6 +69,7 @@ const timings = {
   "26.4": "f",
   "27.0": "g",
   "27.6": "i",
+  "28.0": "j",
   "28.7": "ten"
 };
 
@@ -105,10 +106,13 @@ function alphaImage() {
   this.css("opacity", "1");
 }
 
-function showImage(args={}) {
+function showImage(args={}, full=false) {
   assets.children().hide();
   this.show();
   this.css({'top': `${args.top}%`, 'left': `${args.left}%`});
+  if(full) {
+    this.css({'max-width': "100%", 'max-height': "100%"});
+  }
 }
 
 function keyboardControls(e) {
