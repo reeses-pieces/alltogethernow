@@ -7,7 +7,7 @@ $(document).ready(function() {
 let checker; // Var for interval checker
 const audio = document.querySelector("#main-audio");
 const assets = $("#assets");
-const mainContent = $("#main-container");
+const mainContainer = $("#main-container");
 const words = $("#words");
 const portrait = $("#portrait");
 const littleMore = $("#little-more");
@@ -24,6 +24,8 @@ const cRingo = $("#c-ringo");
 const dGeorge = $("#d-george");
 const friendTea = $("#friend-tea");
 const beatlesOutside = $("#beatles-outside");
+const waves = $("#waves");
+const ship = $("#ship");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -46,6 +48,9 @@ const keyFrames = {
   "g": showImage.bind(beatlesOutside, {top: 69, left: 26}),
   "i": showImage.bind(beatlesOutside, {top: 69, left: 8}),
   "j": showImage.bind(beatlesOutside, {top: 50, left: 50, centered: true}),
+  "waves": showImage.bind(waves, {}, false),
+  "sky": showImage.bind(mainContainer, {class: "skyblue"}, false),
+  "ship": showImage.bind(ship, {}, false)
 };
 
 // Timings for keyframes
@@ -71,7 +76,9 @@ const timings = {
   "27.6": "i",
   "28.0": "j",
   "28.7": "ten",
-  "30.9": "ship"
+  "30.9": "waves",
+  "31.5": "sky",
+  "32.0": "ship"
 };
 
 function changeImgCrop(args={}) {
@@ -107,8 +114,10 @@ function alphaImage() {
   this.css("opacity", "1");
 }
 
-function showImage(args={}) {
-  assets.children().hide();
+function showImage(args={}, hide=true) {
+  if(hide) {
+    assets.children().hide();
+  }
   this.show();
   if(args) {
     handleArgs.call(this, args);
@@ -121,6 +130,9 @@ function handleArgs(args) {
   }
   if(args.centered) {
     this.css({'max-width': "100%", 'max-height': "100%"});
+  }
+  if(args.class) {
+    this.addClass(args.class);
   }
 }
 
@@ -171,6 +183,6 @@ const stopAudioEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-$(".sail").show();
+// $(".sail").show();
 // DEBUG!
-// audio.currentTime = 22;
+audio.currentTime = 28;

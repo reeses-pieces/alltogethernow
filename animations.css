@@ -49,3 +49,39 @@
     transform: scale( .6 ) translate(-13%, -450%) rotate(-5deg);
   }
 }*/
+
+@keyframes wavesMotion
+{
+  0%
+  {
+    left: 0%;
+  }
+  100%
+  {
+    left: -18%;
+  }
+}
+
+@keyframes shipTilt
+{
+  0%
+  {
+    transform: rotate(0deg);
+  }
+  25%
+  {
+    transform: rotate(-3deg);    
+  }
+  50%
+  {
+    transform: rotate(0deg);
+  }
+  75%
+  {
+    transform: rotate(3deg);
+  }
+  100%
+  {
+    transform: rotate(0deg);
+  }
+}

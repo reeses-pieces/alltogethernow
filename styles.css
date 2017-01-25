@@ -51,9 +51,21 @@ h2 {
   overflow: hidden;
   text-align: center;
   vertical-align: middle;
-  background: white;
   color: black;
   box-shadow:0 0 5px 5px rgba(0,0,0,0.1)
+}
+
+.whitebg {
+  background: white;
+}
+
+.skyblue {
+  background: rgb(240,249,255); /* Old browsers */
+  background: -moz-linear-gradient(-45deg, rgba(240,249,255,1) 0%, rgba(203,235,255,1) 47%, rgba(161,219,255,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, rgba(240,249,255,1) 0%,rgba(203,235,255,1) 47%,rgba(161,219,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, rgba(240,249,255,1) 0%,rgba(203,235,255,1) 47%,rgba(161,219,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  copy
 }
 
 .centered {
@@ -138,12 +150,14 @@ h2 {
   bottom: -50px;
   left: 0px;
   z-index: 3;
+  animation: wavesMotion 5s linear 1;
 }
 
 #ship {
   position: absolute;
   top: 8%;
   left: 10%;
+  animation: shipTilt 3s linear 2;
 }
 
 audio {
