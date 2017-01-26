@@ -183,6 +183,6 @@ const stopAudioEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-// $(".sail").show();
+$(".chop").show();
 // DEBUG!
 audio.currentTime = 28;
