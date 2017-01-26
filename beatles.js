@@ -30,6 +30,9 @@ const meadow = $("#meadow");
 const tree = $("#tree");
 const lumberjack = $("#lumberjack");
 const bird = $("#bird");
+const sidewalk = $("#sidewalk");
+const treeTrunk = $("#tree-trunk");
+const stickJump = $("#stick-jump");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -52,13 +55,16 @@ const keyFrames = {
   "g": showImage.bind(beatlesOutside, {top: 69, left: 26}),
   "i": showImage.bind(beatlesOutside, {top: 69, left: 8}),
   "j": showImage.bind(beatlesOutside, {top: 50, left: 50, centered: true}),
-  "waves": showImage.bind(waves, {}, false),
-  "sky": showImage.bind(mainContainer, {class: "skyblue"}, false),
-  "ship": showImage.bind(ship, {}, false),
-  "meadow": showImage.bind(meadow, {}),
-  "tree": showImage.bind(tree, {}, false),
-  "lumberjack": showImage.bind(lumberjack, {}, false),
-  "bird": showImage.bind(bird, {}, false)
+  "waves": showImage.bind(waves, {}, true),
+  "sky": showImage.bind(mainContainer, {class: "skyblue"}),
+  "ship": showImage.bind(ship),
+  "meadow": showImage.bind(meadow, {}, true),
+  "tree": showImage.bind(tree),
+  "lumberjack": showImage.bind(lumberjack),
+  "bird": showImage.bind(bird),
+  "sidewalk": showImage.bind(sidewalk, {}, true),
+  "trunk": showImage.bind(treeTrunk),
+  "skip": showImage.bind(stickJump)
 };
 
 // Timings for keyframes
@@ -91,7 +97,11 @@ const timings = {
   "33.9": "sky",
   "34.0": "tree",
   "34.6": "lumberjack",
-  "35.2": "bird"
+  "35.2": "bird",
+  "35.9": "sidewalk",
+  "36.3": "sky",
+  "36.5": "trunk",
+  "37.1": "skip"
 };
 
 function changeImgCrop(args={}) {
@@ -127,7 +137,7 @@ function alphaImage() {
   this.css("opacity", "1");
 }
 
-function showImage(args={}, hide=true) {
+function showImage(args={}, hide=false) {
   if(hide) {
     assets.children().hide();
   }
@@ -185,7 +195,7 @@ const startAudioEventListener = function() {
       timingChecker();
     }, 100);
   });
-};
+}
 
 const stopAudioEventListener = function() {
   $(audio).on("pause", function() {
@@ -196,6 +206,6 @@ const stopAudioEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-$(".chop").show();
+// $(".rope").show();
 // DEBUG!
 audio.currentTime = 30;

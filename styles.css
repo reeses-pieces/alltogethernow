@@ -49,10 +49,8 @@ h2 {
   border-radius: 15px;
   position: relative;
   overflow: hidden;
-  text-align: center;
-  vertical-align: middle;
   color: black;
-  box-shadow:0 0 5px 5px rgba(0,0,0,0.1)
+  box-shadow:0 0 5px 5px rgba(0,0,0,0.1);
 }
 
 .whitebg {
@@ -67,6 +65,7 @@ h2 {
 }
 
 .centered {
+  text-align: center;
   font-size: 1.5em;
   position: absolute;
   top: 50%;
@@ -170,6 +169,7 @@ h2 {
   z-index: 2;
   transform: scale(1.5);
   bottom: 160px;
+  right: -76px;
 }
 
 #lumberjack {
@@ -187,6 +187,27 @@ h2 {
   right: 35%;
   z-index: 1;
   animation: birdFly 1.2s linear 1;
+}
+
+/*Skip the Rope*/
+
+#sidewalk {
+  position: absolute;
+  bottom: 0px;
+  z-index: 2;
+}
+
+#tree-trunk {
+  z-index: 1;
+  position: absolute;
+  top: -107px;
+}
+
+#stick-jump {
+  position: absolute;
+  z-index: 3;
+  bottom: -416px;
+  transform: scale(.6);
 }
 
 audio {
