@@ -26,6 +26,9 @@ const friendTea = $("#friend-tea");
 const beatlesOutside = $("#beatles-outside");
 const waves = $("#waves");
 const ship = $("#ship");
+const meadow = $("#meadow");
+const tree = $("#tree");
+const lumberjack = $("#lumberjack");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -50,7 +53,10 @@ const keyFrames = {
   "j": showImage.bind(beatlesOutside, {top: 50, left: 50, centered: true}),
   "waves": showImage.bind(waves, {}, false),
   "sky": showImage.bind(mainContainer, {class: "skyblue"}, false),
-  "ship": showImage.bind(ship, {}, false)
+  "ship": showImage.bind(ship, {}, false),
+  "meadow": showImage.bind(meadow, {}),
+  "tree": showImage.bind(tree, {}, false),
+  "lumberjack": showImage.bind(lumberjack, {}, false)
 };
 
 // Timings for keyframes
@@ -78,7 +84,11 @@ const timings = {
   "28.7": "ten",
   "30.9": "waves",
   "31.5": "sky",
-  "32.0": "ship"
+  "32.0": "ship",
+  "33.4": "meadow",
+  "33.9": "sky",
+  "34.0": "tree",
+  "34.6": "lumberjack"
 };
 
 function changeImgCrop(args={}) {
@@ -183,6 +193,6 @@ const stopAudioEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-$(".chop").show();
+// $(".chop").show();
 // DEBUG!
-audio.currentTime = 28;
+audio.currentTime = 10;

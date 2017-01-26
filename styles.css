@@ -150,14 +150,14 @@ h2 {
   bottom: -50px;
   left: 0px;
   z-index: 3;
-  animation: wavesMotion 5s linear 1;
+  animation: wavesMotion 5s linear infinite;
 }
 
 #ship {
   position: absolute;
   top: 8%;
   left: 10%;
-  animation: shipTilt 3s linear 2;
+  animation: shipTilt 3s linear infinite;
 }
 
 /*Chop the Tree*/
