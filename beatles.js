@@ -29,6 +29,7 @@ const ship = $("#ship");
 const meadow = $("#meadow");
 const tree = $("#tree");
 const lumberjack = $("#lumberjack");
+const bird = $("#bird");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -56,7 +57,8 @@ const keyFrames = {
   "ship": showImage.bind(ship, {}, false),
   "meadow": showImage.bind(meadow, {}),
   "tree": showImage.bind(tree, {}, false),
-  "lumberjack": showImage.bind(lumberjack, {}, false)
+  "lumberjack": showImage.bind(lumberjack, {}, false),
+  "bird": showImage.bind(bird, {}, false)
 };
 
 // Timings for keyframes
@@ -88,7 +90,8 @@ const timings = {
   "33.4": "meadow",
   "33.9": "sky",
   "34.0": "tree",
-  "34.6": "lumberjack"
+  "34.6": "lumberjack",
+  "35.2": "bird"
 };
 
 function changeImgCrop(args={}) {
@@ -193,6 +196,6 @@ const stopAudioEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-// $(".chop").show();
+$(".chop").show();
 // DEBUG!
-audio.currentTime = 10;
+audio.currentTime = 30;

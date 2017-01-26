@@ -85,3 +85,16 @@
     transform: rotate(0deg);
   }
 }
+
+@keyframes birdFly
+{
+  0%
+  {
+    top: 25%;
+    right: 35%;
+  }
+  100%
+  {
+    right: 150%;
+  }
+}

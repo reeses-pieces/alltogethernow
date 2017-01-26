@@ -181,6 +181,16 @@ h2 {
   left: 145px;
   transform: scale(0.6);
 }
+
+#bird {
+  position: absolute;
+  transform: scale(.5) scaleX(-1);
+  top: 25%;
+  right: 35%;
+  z-index: 1;
+  animation: birdFly 1.2s linear 1;
+}
+
 audio {
   box-shadow:10px 10px 0 rgba(0,0,0,0.1);
 }
