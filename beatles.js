@@ -206,6 +206,7 @@ const stopAudioEventListener = function() {
   });
 };
 
+// Control playback with mouse click
 const mainContainerEventListener = function() {
   $(mainContainer).on("click", function(e) {
     handleControls(e, click=true);
