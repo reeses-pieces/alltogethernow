@@ -206,7 +206,7 @@ h2 {
 #jump-rope {
   position: absolute;
   z-index: 3;
-  bottom: 18%;
+  bottom: 13%;
   right: 16%;
   transform: scale(1.6);
 }
