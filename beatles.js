@@ -33,7 +33,7 @@ const lumberjack = $("#lumberjack");
 const bird = $("#bird");
 const sidewalk = $("#sidewalk");
 const treeTrunk = $("#tree-trunk");
-const stickJump = $("#stick-jump");
+const jumpRope = $("#jump-rope");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -65,7 +65,7 @@ const keyFrames = {
   "bird": showImage.bind(bird),
   "sidewalk": showImage.bind(sidewalk, {}, true),
   "trunk": showImage.bind(treeTrunk),
-  "skip": showImage.bind(stickJump)
+  "skip": showImage.bind(jumpRope)
 };
 
 // Timings for keyframes
