@@ -140,6 +140,7 @@ function alphaImage() {
 function showImage(args={}, hide=false) {
   if(hide) {
     assets.children().hide();
+    mainContainer.removeClass("skyblue");
   }
   this.show();
   if(args) {
@@ -206,6 +207,6 @@ const stopAudioEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-$(".rope").show();
+// $(".rope").show();
 // DEBUG!
 audio.currentTime = 33;
