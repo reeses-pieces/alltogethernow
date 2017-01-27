@@ -206,6 +206,6 @@ const stopAudioEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-// $(".rope").show();
+$(".rope").show();
 // DEBUG!
-audio.currentTime = 30;
+audio.currentTime = 33;

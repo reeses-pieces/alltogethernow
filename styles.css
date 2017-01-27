@@ -124,7 +124,7 @@ h2 {
 
 #heart {
   transform: scale( .6 ) translate(-13%, -50%);
-  animation: heartbeat 2s 1;
+  animation: heartbeat 2s 1 forwards;
 }
 
 /*Alphabet*/
@@ -147,7 +147,7 @@ h2 {
   bottom: -50px;
   left: 0px;
   z-index: 3;
-  animation: wavesMotion 5s linear infinite;
+  animation: wavesMotion 5s linear infinite alternate;
 }
 
 #ship {
@@ -186,7 +186,7 @@ h2 {
   top: 25%;
   right: 35%;
   z-index: 1;
-  animation: birdFly 1.2s linear 1;
+  animation: birdFly 1.2s linear 1 forwards;
 }
 
 /*Skip the Rope*/
@@ -206,8 +206,9 @@ h2 {
 #stick-jump {
   position: absolute;
   z-index: 3;
-  bottom: -416px;
-  transform: scale(.6);
+  bottom: 18%;
+  right: 16%;
+  transform: scale(1.6);
 }
 
 audio {
