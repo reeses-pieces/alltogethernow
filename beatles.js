@@ -1,7 +1,8 @@
 $(document).ready(function() {
   startAudioEventListener();
   stopAudioEventListener();
-  $(window).on('keyup', keyboardControls);
+  mainContainerEventListener();
+  $(window).on('keyup', handleControls);
 });
 
 let checker; // Var for interval checker
@@ -160,9 +161,9 @@ function handleArgs(args) {
   }
 }
 
-function keyboardControls(e) {
-  // Space or Enter
-  if (e.keyCode === 32 || e.keyCode === 13) {
+function handleControls(e, click=false) {
+  // Space, enter, or click
+  if (click || e.keyCode === 32 || e.keyCode === 13) {
     if(audio.paused) {
       audio.play();
     } else {
@@ -196,12 +197,18 @@ const startAudioEventListener = function() {
       timingChecker();
     }, 100);
   });
-}
+};
 
 const stopAudioEventListener = function() {
   $(audio).on("pause", function() {
     console.log('clearing');
     clearInterval(checker);
+  });
+};
+
+const mainContainerEventListener = function() {
+  $(mainContainer).on("click", function(e) {
+    handleControls(e, click=true);
   });
 };
 
