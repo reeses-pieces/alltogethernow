@@ -34,6 +34,7 @@ const bird = $("#bird");
 const sidewalk = $("#sidewalk");
 const treeTrunk = $("#tree-trunk");
 const jumpRope = $("#jump-rope");
+const school = $("#school");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -64,6 +65,7 @@ const keyFrames = {
   "lumberjack": showImage.bind(lumberjack),
   "bird": showImage.bind(bird),
   "sidewalk": showImage.bind(sidewalk, {}, true),
+  "school": showImage.bind(school),
   "trunk": showImage.bind(treeTrunk),
   "skip": showImage.bind(jumpRope)
 };
@@ -100,9 +102,10 @@ const timings = {
   "34.6": "lumberjack",
   "35.2": "bird",
   "35.9": "sidewalk",
-  "36.3": "sky",
+  "36.0": "sky",
+  "36.3": "school",
   "36.5": "trunk",
-  "37.1": "skip"
+  "37.0": "skip"
 };
 
 function changeImgCrop(args={}) {

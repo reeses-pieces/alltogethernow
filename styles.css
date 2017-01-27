@@ -211,6 +211,13 @@ h2 {
   transform: scale(1.6);
 }
 
+#school {
+  position: absolute;
+  z-index: 1;
+  bottom: 16%;
+  right: -45%;
+}
+
 audio {
   box-shadow:10px 10px 0 rgba(0,0,0,0.1);
 }
