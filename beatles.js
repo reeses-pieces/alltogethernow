@@ -102,7 +102,7 @@ const timings = {
   "34.6": "lumberjack",
   "35.2": "bird",
   "35.9": "sidewalk",
-  "36.0": "sky",
+  "36.0": "sky", //Not synced
   "36.3": "school",
   "36.5": "trunk",
   "37.0": "skip"
