@@ -67,7 +67,8 @@ const keyFrames = {
   "sidewalk": showImage.bind(sidewalk, {}, true),
   "school": showImage.bind(school),
   "trunk": showImage.bind(treeTrunk),
-  "skip": showImage.bind(jumpRope)
+  "skip": showImage.bind(jumpRope),
+  "oceanblue": showImage.bind(mainContainer, {class: "oceanblue"}, true)
 };
 
 // Timings for keyframes
@@ -105,7 +106,8 @@ const timings = {
   "36.0": "sky",
   "36.3": "school",
   "36.5": "trunk",
-  "37.0": "skip"
+  "37.0": "skip",
+  "38.4": "oceanblue"
 };
 
 function changeImgCrop(args={}) {
@@ -144,7 +146,7 @@ function alphaImage() {
 function showImage(args={}, hide=false) {
   if(hide) {
     assets.children().hide();
-    mainContainer.removeClass("skyblue");
+    mainContainer.removeClass().addClass("whitebg");
   }
   this.show();
   if(args) {
