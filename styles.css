@@ -53,6 +53,10 @@ h2 {
   box-shadow:0 0 5px 5px rgba(0,0,0,0.1);
 }
 
+.abs-pos {
+  position: absolute;
+}
+
 .whitebg {
   background: white;
 }
@@ -85,7 +89,6 @@ h2 {
   max-height: 100%;
   display: block;
   margin: auto;
-  position: absolute;
   /*right: 13%;*/
   clip: rect(800px,800px,800px,0px);
 }
@@ -94,11 +97,9 @@ h2 {
   margin: auto 0;
   top: 0px;
   bottom: 0px;
-  position: absolute;
 }
 
 .vert-heads {
-  position: absolute;
   left: 0px;
   right: 0px;
   margin: 0 auto;
@@ -150,7 +151,6 @@ h2 {
 
 /*Sail the Ship*/
 #waves {
-  position: absolute;
   bottom: -50px;
   left: 0px;
   z-index: 3;
@@ -158,7 +158,6 @@ h2 {
 }
 
 #ship {
-  position: absolute;
   top: 8%;
   left: 10%;
   animation: shipTilt 3s linear infinite;
@@ -166,13 +165,11 @@ h2 {
 
 /*Chop the Tree*/
 #meadow {
-  position: absolute;
   top: 100px;
   right: -255px;
 }
 
 #tree {
-  position: absolute;
   z-index: 2;
   transform: scale(1.5);
   bottom: 160px;
@@ -180,7 +177,6 @@ h2 {
 }
 
 #lumberjack {
-  position: absolute;
   z-index: 3;
   bottom: -100px;
   left: 145px;
@@ -188,7 +184,6 @@ h2 {
 }
 
 #bird {
-  position: absolute;
   transform: scale(.5) scaleX(-1);
   top: 25%;
   right: 35%;
@@ -199,19 +194,16 @@ h2 {
 /*Skip the Rope*/
 
 #sidewalk {
-  position: absolute;
   bottom: 0px;
   z-index: 2;
 }
 
 #tree-trunk {
   z-index: 1;
-  position: absolute;
   top: -107px;
 }
 
 #jump-rope {
-  position: absolute;
   z-index: 3;
   bottom: 13%;
   right: 16%;
@@ -219,7 +211,6 @@ h2 {
 }
 
 #school {
-  position: absolute;
   z-index: 1;
   bottom: 16%;
   right: -45%;
@@ -228,7 +219,6 @@ h2 {
 /*Look at me*/
 
 #sub {
-  position: absolute;
   left: -60%;
   top: 50%;
   animation: subMove 4s cubic-bezier(0.175, 0.460, 0.895, 0.510) forwards 1;
