@@ -37,8 +37,11 @@ const treeTrunk = $("#tree-trunk");
 const jumpRope = $("#jump-rope");
 const school = $("#school");
 const sub = $("#sub");
+const meList = $("#me-list");
 const mePaul = $("#me-paul");
 const meJohn = $("#me-john");
+const meGeorge = $("#me-george");
+const meRingo = $("#me-ringo");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -74,7 +77,10 @@ const keyFrames = {
   "skip": showImage.bind(jumpRope),
   "oceanblue": showImage.bind(mainContainer, {class: "oceanblue"}, true),
   "sub": showImage.bind(sub),
-  "me-paul": showImage.bind(mePaul)
+  "me-paul": meImage.bind(mePaul),
+  "me-john": meImage.bind(meJohn),
+  "me-george": meImage.bind(meGeorge),
+  "me-ringo": meImage.bind(meRingo)
 };
 
 // Timings for keyframes
@@ -115,7 +121,10 @@ const timings = {
   "37.0": "skip",
   "38.4": "oceanblue",
   "39.0": "sub",
-  "39.8": "me-paul"
+  "39.7": "me-paul",
+  "40.5": "me-john",
+  "41.7": "me-george",
+  "42.3": "me-ringo"
 };
 
 function changeImgCrop(args={}) {
@@ -144,6 +153,11 @@ function alphaImage() {
   assets.children().hide();
   alphaTable.show();
   this.css("opacity", "1");
+}
+
+function meImage() {
+  meList.show();
+  this.css("opacity", "1");  
 }
 
 function showImage(args={}, hide=false) {
@@ -230,6 +244,6 @@ const mainContainerEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-$(".me").show();
+// $(".me").show();
 // DEBUG!
 audio.currentTime = 38.3;

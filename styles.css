@@ -222,6 +222,7 @@ h2 {
   left: -60%;
   top: 50%;
   animation: subMove 4s cubic-bezier(0.175, 0.460, 0.895, 0.510) forwards 1;
+  z-index: 3;
 }
 
 #me-list {
@@ -231,7 +232,6 @@ h2 {
   list-style-type: none;
   left: 0%;
   bottom: 10%;
-  /*border: 3px solid red;*/
   margin: 0;
   padding: 0;
   justify-content: space-around;
@@ -239,6 +239,10 @@ h2 {
 
 #me-list li {
   display: flex;
+}
+
+#me-list img {
+  opacity: 0;
 }
 audio {
   box-shadow:10px 10px 0 rgba(0,0,0,0.1);
