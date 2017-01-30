@@ -2,6 +2,7 @@ $(document).ready(function() {
   startAudioEventListener();
   stopAudioEventListener();
   mainContainerEventListener();
+  subPosEventListener();
   $(window).on('keyup', handleControls);
 });
 
@@ -36,6 +37,8 @@ const treeTrunk = $("#tree-trunk");
 const jumpRope = $("#jump-rope");
 const school = $("#school");
 const sub = $("#sub");
+const mePaul = $("#me-paul");
+const meJohn = $("#me-john");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -70,7 +73,8 @@ const keyFrames = {
   "trunk": showImage.bind(treeTrunk),
   "skip": showImage.bind(jumpRope),
   "oceanblue": showImage.bind(mainContainer, {class: "oceanblue"}, true),
-  "sub": showImage.bind(sub)
+  "sub": showImage.bind(sub),
+  "me-paul": showImage.bind(mePaul)
 };
 
 // Timings for keyframes
@@ -110,7 +114,8 @@ const timings = {
   "36.5": "trunk",
   "37.0": "skip",
   "38.4": "oceanblue",
-  "39.0": "sub"
+  "39.0": "sub",
+  "39.8": "me-paul"
 };
 
 function changeImgCrop(args={}) {
@@ -151,6 +156,13 @@ function showImage(args={}, hide=false) {
     handleArgs.call(this, args);
   }
 }
+
+const subPosEventListener = function() {
+  sub.on("transition", function() {
+    var subXPos = sub.css("transition");
+    console.log("MOVING!");
+  });
+};
 
 function handleArgs(args) {
   if(args.top || args.left) {
@@ -218,6 +230,6 @@ const mainContainerEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-// $(".me").show();
+$(".me").show();
 // DEBUG!
 audio.currentTime = 38.3;
