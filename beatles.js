@@ -35,6 +35,7 @@ const sidewalk = $("#sidewalk");
 const treeTrunk = $("#tree-trunk");
 const jumpRope = $("#jump-rope");
 const school = $("#school");
+const sub = $("#sub");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -68,7 +69,8 @@ const keyFrames = {
   "school": showImage.bind(school),
   "trunk": showImage.bind(treeTrunk),
   "skip": showImage.bind(jumpRope),
-  "oceanblue": showImage.bind(mainContainer, {class: "oceanblue"}, true)
+  "oceanblue": showImage.bind(mainContainer, {class: "oceanblue"}, true),
+  "sub": showImage.bind(sub)
 };
 
 // Timings for keyframes
@@ -107,7 +109,8 @@ const timings = {
   "36.3": "school",
   "36.5": "trunk",
   "37.0": "skip",
-  "38.4": "oceanblue"
+  "38.4": "oceanblue",
+  "39.0": "sub"
 };
 
 function changeImgCrop(args={}) {
@@ -215,6 +218,6 @@ const mainContainerEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-// $(".rope").show();
+// $(".me").show();
 // DEBUG!
-audio.currentTime = 33;
+audio.currentTime = 38.3;

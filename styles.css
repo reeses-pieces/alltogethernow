@@ -225,6 +225,15 @@ h2 {
   right: -45%;
 }
 
+/*Look at me*/
+
+#sub {
+  position: absolute;
+  left: -60%;
+  top: 50%;
+  animation: subMove 4s cubic-bezier(0.175, 0.460, 0.895, 0.510) forwards 1;
+}
+
 audio {
   box-shadow:10px 10px 0 rgba(0,0,0,0.1);
 }
