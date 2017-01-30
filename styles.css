@@ -53,6 +53,10 @@ h2 {
   box-shadow:0 0 5px 5px rgba(0,0,0,0.1);
 }
 
+.abs-pos {
+  position: absolute;
+}
+
 .whitebg {
   background: white;
 }
@@ -62,6 +66,13 @@ h2 {
   background: -moz-linear-gradient(-45deg, rgba(240,249,255,1) 0%, rgba(203,235,255,1) 47%, rgba(161,219,255,1) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(-45deg, rgba(240,249,255,1) 0%,rgba(203,235,255,1) 47%,rgba(161,219,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(135deg, rgba(240,249,255,1) 0%,rgba(203,235,255,1) 47%,rgba(161,219,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.oceanblue {
+  background: rgb(167,207,223); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(167,207,223,1) 0%, rgba(35,83,138,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(167,207,223,1) 0%,rgba(35,83,138,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(167,207,223,1) 0%,rgba(35,83,138,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 .centered {
@@ -78,7 +89,6 @@ h2 {
   max-height: 100%;
   display: block;
   margin: auto;
-  position: absolute;
   /*right: 13%;*/
   clip: rect(800px,800px,800px,0px);
 }
@@ -87,11 +97,9 @@ h2 {
   margin: auto 0;
   top: 0px;
   bottom: 0px;
-  position: absolute;
 }
 
 .vert-heads {
-  position: absolute;
   left: 0px;
   right: 0px;
   margin: 0 auto;
@@ -143,7 +151,6 @@ h2 {
 
 /*Sail the Ship*/
 #waves {
-  position: absolute;
   bottom: -50px;
   left: 0px;
   z-index: 3;
@@ -151,7 +158,6 @@ h2 {
 }
 
 #ship {
-  position: absolute;
   top: 8%;
   left: 10%;
   animation: shipTilt 3s linear infinite;
@@ -159,13 +165,11 @@ h2 {
 
 /*Chop the Tree*/
 #meadow {
-  position: absolute;
   top: 100px;
   right: -255px;
 }
 
 #tree {
-  position: absolute;
   z-index: 2;
   transform: scale(1.5);
   bottom: 160px;
@@ -173,7 +177,6 @@ h2 {
 }
 
 #lumberjack {
-  position: absolute;
   z-index: 3;
   bottom: -100px;
   left: 145px;
@@ -181,7 +184,6 @@ h2 {
 }
 
 #bird {
-  position: absolute;
   transform: scale(.5) scaleX(-1);
   top: 25%;
   right: 35%;
@@ -192,19 +194,16 @@ h2 {
 /*Skip the Rope*/
 
 #sidewalk {
-  position: absolute;
   bottom: 0px;
   z-index: 2;
 }
 
 #tree-trunk {
   z-index: 1;
-  position: absolute;
   top: -107px;
 }
 
 #jump-rope {
-  position: absolute;
   z-index: 3;
   bottom: 13%;
   right: 16%;
@@ -212,12 +211,39 @@ h2 {
 }
 
 #school {
-  position: absolute;
   z-index: 1;
   bottom: 16%;
   right: -45%;
 }
 
+/*Look at me*/
+
+#sub {
+  left: -60%;
+  top: 50%;
+  animation: subMove 4s cubic-bezier(0.175, 0.460, 0.895, 0.510) forwards 1;
+  z-index: 3;
+}
+
+#me-list {
+  display: flex;
+  width: 100%;
+  height: 17%;
+  list-style-type: none;
+  left: 0%;
+  bottom: 10%;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+}
+
+#me-list li {
+  display: flex;
+}
+
+#me-list img {
+  opacity: 0;
+}
 audio {
   box-shadow:10px 10px 0 rgba(0,0,0,0.1);
 }

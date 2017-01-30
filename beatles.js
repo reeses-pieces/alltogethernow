@@ -2,6 +2,7 @@ $(document).ready(function() {
   startAudioEventListener();
   stopAudioEventListener();
   mainContainerEventListener();
+  subPosEventListener();
   $(window).on('keyup', handleControls);
 });
 
@@ -35,13 +36,19 @@ const sidewalk = $("#sidewalk");
 const treeTrunk = $("#tree-trunk");
 const jumpRope = $("#jump-rope");
 const school = $("#school");
+const sub = $("#sub");
+const meList = $("#me-list");
+const mePaul = $("#me-paul");
+const meJohn = $("#me-john");
+const meGeorge = $("#me-george");
+const meRingo = $("#me-ringo");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
   "two": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
   "three": changeImgCrop.bind(null, {top: 387, right: 385, bottom: 762, left: 0}),
   "four": changeImgCrop.bind(null, {top: 387, right: 800, bottom: 762, left: 385}),
-  "little more": displayText.bind(littleMore, ''),
+  "little more": showImage.bind(littleMore, {}, true),
   "five": slideInPortraits.bind(johnHead, {left: "-102px"}, true),
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
@@ -51,7 +58,7 @@ const keyFrames = {
   "b": alphaImage.bind(bJohn),
   "c": alphaImage.bind(cRingo),
   "d": alphaImage.bind(dGeorge),
-  "friend to tea": displayText.bind(friendTea),
+  "friend to tea": showImage.bind(friendTea, {}, true),
   "e": showImage.bind(beatlesOutside, {top: 69, left: 93}),
   "f": showImage.bind(beatlesOutside, {top: 69, left: 64}),
   "g": showImage.bind(beatlesOutside, {top: 69, left: 26}),
@@ -67,7 +74,13 @@ const keyFrames = {
   "sidewalk": showImage.bind(sidewalk, {}, true),
   "school": showImage.bind(school),
   "trunk": showImage.bind(treeTrunk),
-  "skip": showImage.bind(jumpRope)
+  "skip": showImage.bind(jumpRope),
+  "oceanblue": showImage.bind(mainContainer, {class: "oceanblue"}, true),
+  "sub": showImage.bind(sub),
+  "me-paul": meImage.bind(mePaul),
+  "me-john": meImage.bind(meJohn),
+  "me-george": meImage.bind(meGeorge),
+  "me-ringo": meImage.bind(meRingo)
 };
 
 // Timings for keyframes
@@ -105,18 +118,19 @@ const timings = {
   "36.0": "sky", //Not synced
   "36.3": "school",
   "36.5": "trunk",
-  "37.0": "skip"
+  "37.0": "skip",
+  "38.4": "oceanblue",
+  "39.0": "sub",
+  "39.7": "me-paul",
+  "40.5": "me-john",
+  "41.7": "me-george",
+  "42.3": "me-ringo"
 };
 
 function changeImgCrop(args={}) {
   assets.children().hide();
   portrait.show();
   $('#portrait').css('clip', `rect(${args.top}px,${args.right}px,${args.bottom}px,${args.left}px)`);
-}
-
-function displayText() {
-  assets.children().hide();
-  this.show();
 }
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
@@ -141,16 +155,28 @@ function alphaImage() {
   this.css("opacity", "1");
 }
 
+function meImage() {
+  meList.show();
+  this.css("opacity", "1");  
+}
+
 function showImage(args={}, hide=false) {
   if(hide) {
     assets.children().hide();
-    mainContainer.removeClass("skyblue");
+    mainContainer.removeClass().addClass("whitebg");
   }
   this.show();
   if(args) {
     handleArgs.call(this, args);
   }
 }
+
+const subPosEventListener = function() {
+  sub.on("transition", function() {
+    var subXPos = sub.css("transition");
+    console.log("MOVING!");
+  });
+};
 
 function handleArgs(args) {
   if(args.top || args.left) {
@@ -218,6 +244,6 @@ const mainContainerEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-// $(".rope").show();
+// $(".me").show();
 // DEBUG!
-audio.currentTime = 33;
+audio.currentTime = 38.3;
