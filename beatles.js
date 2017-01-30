@@ -41,7 +41,7 @@ const keyFrames = {
   "two": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
   "three": changeImgCrop.bind(null, {top: 387, right: 385, bottom: 762, left: 0}),
   "four": changeImgCrop.bind(null, {top: 387, right: 800, bottom: 762, left: 385}),
-  "little more": displayText.bind(littleMore, ''),
+  "little more": showImage.bind(littleMore, {}, true),
   "five": slideInPortraits.bind(johnHead, {left: "-102px"}, true),
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
@@ -51,7 +51,7 @@ const keyFrames = {
   "b": alphaImage.bind(bJohn),
   "c": alphaImage.bind(cRingo),
   "d": alphaImage.bind(dGeorge),
-  "friend to tea": displayText.bind(friendTea),
+  "friend to tea": showImage.bind(friendTea, {}, true),
   "e": showImage.bind(beatlesOutside, {top: 69, left: 93}),
   "f": showImage.bind(beatlesOutside, {top: 69, left: 64}),
   "g": showImage.bind(beatlesOutside, {top: 69, left: 26}),
@@ -114,11 +114,6 @@ function changeImgCrop(args={}) {
   assets.children().hide();
   portrait.show();
   $('#portrait').css('clip', `rect(${args.top}px,${args.right}px,${args.bottom}px,${args.left}px)`);
-}
-
-function displayText() {
-  assets.children().hide();
-  this.show();
 }
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
