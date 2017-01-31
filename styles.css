@@ -84,13 +84,16 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
-#portrait {
-  max-height: 100%;
-  max-height: 100%;
-  display: block;
+#nums-table {
   margin: auto;
-  /*right: 13%;*/
-  clip: rect(800px,800px,800px,0px);
+}
+
+.nums {
+  opacity: 0;
+  border-radius: 20%;
+  width: 70%;
+  height: 70%;
+  padding: 30px;
 }
 
 .horiz-heads {
@@ -137,8 +140,12 @@ h2 {
 
 /*Alphabet*/
 
-#alpha-table, td {
+#alpha-table {
   margin: auto;
+  padding: 50px;
+}
+
+#alpha-table td {
   padding: 50px;
 }
 

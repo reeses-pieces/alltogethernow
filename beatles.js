@@ -10,7 +10,11 @@ const audio = document.querySelector("#main-audio");
 const assets = $("#assets");
 const mainContainer = $("#main-container");
 const words = $("#words");
-const portrait = $("#portrait");
+const numsTable = $("#nums-table");
+const john1 = $("#1-john");
+const ringo2 = $("#2-ringo");
+const george3 = $("#3-george");
+const paul4 = $("#4-paul");
 const littleMore = $("#little-more");
 const johnHead = $("#john-head");
 const paulHead = $("#paul-head");
@@ -44,20 +48,20 @@ const meRingo = $("#me-ringo");
 const clownFish = $("#clownfish");
 
 const keyFrames = {
-  "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
-  "two": changeImgCrop.bind(null, {top: 0, right: 827, bottom: 381, left: 385}),
-  "three": changeImgCrop.bind(null, {top: 387, right: 385, bottom: 762, left: 0}),
-  "four": changeImgCrop.bind(null, {top: 387, right: 800, bottom: 762, left: 385}),
+  "one": tableImage.bind(john1, numsTable, true),
+  "two": tableImage.bind(ringo2),
+  "three": tableImage.bind(george3),
+  "four": tableImage.bind(paul4),
   "little more": showImage.bind(littleMore, {}, true),
   "five": slideInPortraits.bind(johnHead, {left: "-102px"}, true),
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
   "eight": slideInPortraits.bind(ringoHead, {bottom: "-102px"}),
   "ten": iLoveYou,
-  "a": alphaImage.bind(aPaul),
-  "b": alphaImage.bind(bJohn),
-  "c": alphaImage.bind(cRingo),
-  "d": alphaImage.bind(dGeorge),
+  "a": tableImage.bind(aPaul, alphaTable, true),
+  "b": tableImage.bind(bJohn),
+  "c": tableImage.bind(cRingo),
+  "d": tableImage.bind(dGeorge),
   "friend to tea": showImage.bind(friendTea, {}, true),
   "e": showImage.bind(beatlesOutside, {top: 69, left: 93}),
   "f": showImage.bind(beatlesOutside, {top: 69, left: 64}),
@@ -129,12 +133,6 @@ const timings = {
   "42.3": "me-ringo"
 };
 
-function changeImgCrop(args={}) {
-  assets.children().hide();
-  portrait.show();
-  $('#portrait').css('clip', `rect(${args.top}px,${args.right}px,${args.bottom}px,${args.left}px)`);
-}
-
 // If calling first image, hide everything else. Otherwise, keep the other images visible
 function slideInPortraits(args={}, first=false) {
   if(first) {
@@ -151,16 +149,19 @@ function iLoveYou() {
   heart.show();
 }
 
-function alphaImage() {
-  assets.children().hide();
-  alphaTable.show();
+function tableImage(tableName, hide=false) {
+  if(hide) {
+    assets.children().hide();
+  }
+  if(tableName) {
+    tableName.show();
+  }
   this.css("opacity", "1");
 }
 
 function meImage() {
   meList.show();
   this.css("opacity", "1");
-  console.log('this', this);
   this.css("animation", "float 4s linear forwards");
 }
 
@@ -243,4 +244,4 @@ const mainContainerEventListener = function() {
 assets.children().hide();
 // $(".me").show();
 // DEBUG!
-audio.currentTime = 38.3;
+audio.currentTime = 10;
