@@ -2,7 +2,6 @@ $(document).ready(function() {
   startAudioEventListener();
   stopAudioEventListener();
   mainContainerEventListener();
-  subPosEventListener();
   $(window).on('keyup', handleControls);
 });
 
@@ -160,7 +159,9 @@ function alphaImage() {
 
 function meImage() {
   meList.show();
-  this.css("opacity", "1");  
+  this.css("opacity", "1");
+  console.log('this', this);
+  this.css("animation", "float 4s linear forwards");
 }
 
 function showImage(args={}, hide=false) {
@@ -173,13 +174,6 @@ function showImage(args={}, hide=false) {
     handleArgs.call(this, args);
   }
 }
-
-const subPosEventListener = function() {
-  sub.on("transition", function() {
-    var subXPos = sub.css("transition");
-    console.log("MOVING!");
-  });
-};
 
 function handleArgs(args) {
   if(args.top || args.left) {
