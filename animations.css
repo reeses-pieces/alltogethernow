@@ -108,3 +108,18 @@
     transform: translateX(300%);
   }
 }
+
+@keyframes fishMove
+{
+  0% {}
+  100% {transform: scale(.2) translate(-500%, 40%);}
+}
+
+@keyframes float
+{
+  0% {}
+  100% 
+  {
+    transform: translateY(-80%);
+  }
+}
