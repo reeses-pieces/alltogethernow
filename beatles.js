@@ -63,11 +63,12 @@ const keyFrames = {
   "c": tableImage.bind(cRingo),
   "d": tableImage.bind(dGeorge),
   "friend to tea": showImage.bind(friendTea, {}, true),
-  "e": showImage.bind(beatlesOutside, {top: 69, left: 93}),
-  "f": showImage.bind(beatlesOutside, {top: 69, left: 64}),
-  "g": showImage.bind(beatlesOutside, {top: 69, left: 26}),
-  "i": showImage.bind(beatlesOutside, {top: 69, left: 8}),
-  "j": showImage.bind(beatlesOutside, {top: 50, left: 50, centered: true}),
+  "e": showImage.bind(beatlesOutside, {left: -1} , true),
+  "f": showImage.bind(beatlesOutside, {left: -12}),
+  "g": showImage.bind(beatlesOutside, {left: -24}),
+  "h": showImage.bind(beatlesOutside, {left: -35}),
+  "i": showImage.bind(beatlesOutside, {left: -49}),
+  "j": showImage.bind(beatlesOutside, {left: 0.1, centered: true}, true),
   "waves": showImage.bind(waves, {}, true),
   "sky": showImage.bind(mainContainer, {class: "skyblue"}),
   "ship": showImage.bind(ship),
@@ -108,6 +109,7 @@ const timings = {
   "25.8": "e",
   "26.4": "f",
   "27.0": "g",
+  "27.2": "h",
   "27.6": "i",
   "28.0": "j",
   "28.7": "ten",
@@ -129,7 +131,7 @@ const timings = {
   "39.0": "sub",
   "39.7": "me-paul",
   "40.5": "me-john",
-  "41.7": "me-george",
+  "41.3": "me-george",
   "42.3": "me-ringo"
 };
 
@@ -178,10 +180,11 @@ function showImage(args={}, hide=false) {
 
 function handleArgs(args) {
   if(args.top || args.left) {
+    console.log(args.left);
     this.css({'top': `${args.top}%`, 'left': `${args.left}%`});
   }
   if(args.centered) {
-    this.css({'max-width': "100%", 'max-height': "100%"});
+    this.css({'width': "100%", 'height': "100%"});
   }
   if(args.class) {
     this.addClass(args.class);
@@ -244,4 +247,4 @@ const mainContainerEventListener = function() {
 assets.children().hide();
 // $(".me").show();
 // DEBUG!
-audio.currentTime = 10;
+audio.currentTime = 38.0;

@@ -44,8 +44,8 @@ h2 {
 
 #main-container {
   margin: auto;
-  width: 1024px;
-  height: 768px;
+  width: 1280px;
+  height: 720px;
   border-radius: 15px;
   position: relative;
   overflow: hidden;
@@ -162,10 +162,10 @@ h2 {
 
 /*Sail the Ship*/
 #waves {
-  bottom: -50px;
+  bottom: -100px;
   left: 0px;
   z-index: 3;
-  animation: wavesMotion 5s linear infinite alternate;
+  animation: wavesMotion 4s linear infinite alternate;
 }
 
 #ship {
@@ -190,7 +190,7 @@ h2 {
 #lumberjack {
   z-index: 3;
   bottom: -100px;
-  left: 145px;
+  left: 355px;
   transform: scale(0.6);
 }
 
@@ -223,8 +223,8 @@ h2 {
 
 #school {
   z-index: 1;
-  bottom: 16%;
-  right: -45%;
+  bottom: 20%;
+  right: -35%;
 }
 
 /*Look at me*/

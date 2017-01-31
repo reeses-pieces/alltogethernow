@@ -56,9 +56,14 @@
   {
     left: 0%;
   }
+  50% 
+  {
+    bottom: -75px;
+  }
   100%
   {
     left: -18%;
+    bottom: -100px;
   }
 }
 
@@ -105,7 +110,7 @@
   {}
   100%
   {
-    transform: translateX(300%);
+    transform: translateX(450%);
   }
 }
 
