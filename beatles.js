@@ -42,6 +42,7 @@ const mePaul = $("#me-paul");
 const meJohn = $("#me-john");
 const meGeorge = $("#me-george");
 const meRingo = $("#me-ringo");
+const clownFish = $("#clownfish");
 
 const keyFrames = {
   "one": changeImgCrop.bind(null, {top: 0, right: 385, bottom: 381, left: 0}),
@@ -76,6 +77,7 @@ const keyFrames = {
   "trunk": showImage.bind(treeTrunk),
   "skip": showImage.bind(jumpRope),
   "oceanblue": showImage.bind(mainContainer, {class: "oceanblue"}, true),
+  "clownfish": showImage.bind(clownFish),
   "sub": showImage.bind(sub),
   "me-paul": meImage.bind(mePaul),
   "me-john": meImage.bind(meJohn),
@@ -120,6 +122,7 @@ const timings = {
   "36.5": "trunk",
   "37.0": "skip",
   "38.4": "oceanblue",
+  "38.9": "clownfish",
   "39.0": "sub",
   "39.7": "me-paul",
   "40.5": "me-john",
