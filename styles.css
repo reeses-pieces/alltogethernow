@@ -199,7 +199,7 @@ h2 {
   top: 25%;
   right: 35%;
   z-index: 1;
-  animation: birdFly 1.2s linear 1 forwards;
+  animation: birdFly 2s linear 1 forwards;
 }
 
 /*Skip the Rope*/
