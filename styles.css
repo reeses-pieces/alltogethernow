@@ -263,6 +263,11 @@ h2 {
   opacity: 0;
 }
 
+.bubble {
+  top: 100%;
+  animation: float 15s linear forwards;
+}
+
 audio {
   box-shadow:10px 10px 0 rgba(0,0,0,0.1);
 }

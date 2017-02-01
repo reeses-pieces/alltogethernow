@@ -3,6 +3,8 @@ $(document).ready(function() {
   stopAudioEventListener();
   mainContainerEventListener();
   $(window).on('keyup', handleControls);
+  cloneBubbles();
+  bubbleEventListener();
 });
 
 let checker; // Var for interval checker
@@ -164,8 +166,24 @@ function tableImage(tableName, hide=false) {
 function meImage() {
   meList.show();
   this.css("opacity", "1");
-  this.css("animation", "float 4s linear forwards");
+  this.css("animation", "float 15s linear forwards");
 }
+
+// Clone bubble, randomize scale and left css
+function cloneBubbles() {
+  var clone = $(".bubble").clone();
+  var randomDec = Math.random();
+  clone.css('transform', `scale(${randomDec})`);
+  clone.css('left', `${randomDec * 100}%`);
+  clone.appendTo("#assets");
+}
+
+const bubbleEventListener = function() {
+  $(".bubble").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function() {
+    this.remove();
+    console.log("REMOVED!");
+  });
+};
 
 function showImage(args={}, hide=false) {
   if(hide) {
@@ -245,6 +263,6 @@ const mainContainerEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-// $(".me").show();
+$(".bubble").show();
 // DEBUG!
 audio.currentTime = 38.0;

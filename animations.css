@@ -125,6 +125,6 @@
   0% {}
   100% 
   {
-    transform: translateY(-80%);
+    top:-50%;
   }
 }
