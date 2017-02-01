@@ -48,6 +48,8 @@ const meJohn = $("#me-john");
 const meGeorge = $("#me-george");
 const meRingo = $("#me-ringo");
 const clownFish = $("#clownfish");
+const bubbles = $(".bubble");
+
 
 const keyFrames = {
   "one": tableImage.bind(john1, numsTable, true),
@@ -171,13 +173,16 @@ function meImage() {
 
 // Clone bubble, randomize scale, left, and animation duration 
 function cloneBubbles() {
-  var clone = $(".bubble").clone();
-  var randomDec = Math.random() + 0.2;
-  var randomSec = (Math.random() * 15) + 5;
-  clone.css('transform', `scale(${randomDec})`);
-  clone.css('left', `${randomDec * 100}%`);
-  clone.css('animation', `float ${randomSec}s linear forwards`);
-  clone.appendTo("#assets");
+  $.each(bubbles, function(i, bubble) {
+    var jbubble = $(bubble);
+    var clone = jbubble.clone();
+    var randomDec = Math.random() + 0.4;
+    var randomSec = (Math.random() * 15) + 5;
+    clone.css('transform', `scale(${randomDec})`);
+    clone.css('left', `${randomDec * 50}%`);
+    clone.css('animation', `float ${randomSec}s linear forwards`);
+    clone.appendTo("#assets");
+  });
 }
 
 const bubbleEventListener = function() {
