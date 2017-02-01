@@ -266,8 +266,7 @@ h2 {
 /*All Together Now*/
 
 .bubble {
-  top: 100%;
-  /*animation: float 15s linear forwards;*/
+  bottom: -35%;
 }
 
 audio {

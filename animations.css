@@ -127,7 +127,7 @@
   }
   25%
   {
-    transform: rotate(-10deg) translateY(-150%);    
+    transform: rotate(-5deg) translateY(-150%);    
   }
   50%
   {
@@ -135,7 +135,7 @@
   }
   75%
   {
-    transform: rotate(10deg) translateY(-450%);
+    transform: rotate(5deg) translateY(-450%);
   }
   100%
   {
@@ -171,6 +171,6 @@
   0% {}
   100% 
   {
-    top:-50%;
+    bottom: 150%;
   }
 }

@@ -194,10 +194,10 @@ function cloneBubbles() {
     let jbubble = $(bubble);
     // Important to copy event handler!
     let clone = jbubble.clone(true);
-    let randomDec = getRandom(0.3, 1);
+    let randomLeft = getRandom(-10, 90);
     let randomSec = getRandom(5, 15);
-    clone.css('transform', `scale(${randomDec})`);
-    clone.css('left', `${Math.random() * 90}%`);
+    // clone.css('transform', `scale(${randomDec})`);
+    clone.css('left', `${randomLeft}%`);
     clone.css('animation', `float ${randomSec}s linear forwards, bubbleRotate 2.5s linear forwards infinite`);
     clone.appendTo("#assets");
   });
