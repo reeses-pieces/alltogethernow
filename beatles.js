@@ -3,8 +3,7 @@ $(document).ready(function() {
   stopAudioEventListener();
   mainContainerEventListener();
   $(window).on('keyup', handleControls);
-  cloneBubbles();
-  bubbleEventListener();
+  bubbleAnimationEventListener();
 });
 
 let checker; // Var for interval checker
@@ -90,7 +89,8 @@ const keyFrames = {
   "me-paul": meImage.bind(mePaul),
   "me-john": meImage.bind(meJohn),
   "me-george": meImage.bind(meGeorge),
-  "me-ringo": meImage.bind(meRingo)
+  "me-ringo": meImage.bind(meRingo),
+  "bubbles": startBubbleCloner.bind(null)
 };
 
 // Timings for keyframes
@@ -136,7 +136,8 @@ const timings = {
   "39.7": "me-paul",
   "40.5": "me-john",
   "41.3": "me-george",
-  "42.3": "me-ringo"
+  "42.3": "me-ringo",
+  "42.9": "bubbles"
 };
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
@@ -171,21 +172,31 @@ function meImage() {
   this.css("animation", "float 15s linear forwards");
 }
 
+function getRandom(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+function startBubbleCloner() {
+  setInterval(cloneBubbles, 1000);
+}
+
 // Clone bubble, randomize scale, left, and animation duration 
 function cloneBubbles() {
   $.each(bubbles, function(i, bubble) {
-    var jbubble = $(bubble);
-    var clone = jbubble.clone();
-    var randomDec = Math.random() + 0.4;
-    var randomSec = (Math.random() * 15) + 5;
+    let jbubble = $(bubble);
+    // Important to copy event handler!
+    let clone = jbubble.clone(true);
+    let randomDec = getRandom(0.3, 1);
+    let randomSec = getRandom(5, 15);
     clone.css('transform', `scale(${randomDec})`);
-    clone.css('left', `${randomDec * 50}%`);
+    clone.css('left', `${Math.random() * 100}%`);
     clone.css('animation', `float ${randomSec}s linear forwards`);
     clone.appendTo("#assets");
   });
 }
 
-const bubbleEventListener = function() {
+// Removes bubble when offscreen
+const bubbleAnimationEventListener = function() {
   $(".bubble").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function() {
     this.remove();
     console.log("REMOVED!");
@@ -270,6 +281,6 @@ const mainContainerEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-$(".bubble").show();
+// $(".bubble").show();
 // DEBUG!
 audio.currentTime = 38.0;
