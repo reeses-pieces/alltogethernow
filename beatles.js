@@ -303,5 +303,5 @@ const mainContainerEventListener = function() {
 assets.children().hide();
 // $(".bubble").show();
 // DEBUG!
-// audio.currentTime = 53.0;
-audio.currentTime = 10;
+audio.currentTime = 53.0;
+// audio.currentTime = 10;
