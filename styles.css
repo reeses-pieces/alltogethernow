@@ -137,6 +137,16 @@ h2 {
   margin: 50px auto;
 }
 
+.love {
+  width: 48%;
+  display: flex;
+  align-content: center;
+}
+
+.love * {
+  margin: auto;
+}
+
 #heart {
   transform: scale( .6 ) translate(-13%, -50%);
   animation: heartbeat 2s 1 forwards;
@@ -171,7 +181,7 @@ h2 {
 #ship {
   top: 8%;
   left: 10%;
-  animation: shipTilt 3s linear infinite;
+  animation: shipTilt 4s linear infinite;
 }
 
 /*Chop the Tree*/
@@ -233,7 +243,7 @@ h2 {
   transform: scale(.24);
   right: 10%;
   top: 30%;
-  animation: fishMove 7s 1 linear forwards;
+  animation: fishMove 15s 1 linear forwards;
 }
 
 #sub {

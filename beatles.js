@@ -23,6 +23,7 @@ const paulHead = $("#paul-head");
 const georgeHead = $("#george-head");
 const ringoHead = $("#ringo-head");
 const heart = $("#heart");
+const loveClass = $(".love");
 const loveYouText = $("#love-you-text");
 const alphaTable = $("#alpha-table");
 const aPaul = $("#a-paul");
@@ -63,7 +64,7 @@ const keyFrames = {
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
   "eight": slideInPortraits.bind(ringoHead, {bottom: "-102px"}),
-  "ten": iLoveYou,
+  "ten": showImage.bind(loveClass, {}, true),
   "a": tableImage.bind(aPaul, alphaTable, true),
   "b": tableImage.bind(bJohn),
   "c": tableImage.bind(cRingo),
@@ -162,13 +163,6 @@ function slideInPortraits(args={}, first=false) {
   }
   this.show();
   this.animate(args, 300);
-}
-
-function iLoveYou() {
-  assets.children().hide();
-  loveYouText.css("left", "38%");
-  loveYouText.show();
-  heart.show();
 }
 
 function tableImage(tableName, hide=false) {
@@ -303,5 +297,5 @@ const mainContainerEventListener = function() {
 assets.children().hide();
 // $(".bubble").show();
 // DEBUG!
-audio.currentTime = 53.0;
-// audio.currentTime = 10;
+// audio.currentTime = 53.0;
+audio.currentTime = 38;

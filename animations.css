@@ -2,31 +2,31 @@
 {
   0%
   {
-    transform: scale( .6 ) translate(200%, -50%);
+    transform: scale( .6 ) translateX(200%);
   }
   20%
   {
-    transform: scale( .6 ) translate(-13%, -50%) rotate(-15deg);
+    transform: scale( .6 ) translateX(-10%) rotate(15deg);
   }
   25%
   {
-    transform: scale( .6 ) translate(-13%, -50%);
+    transform: scale( .6 ) translateX(-13%);
   }
   40%
   {
-    transform: scale( .75 ) translate(-13%, -50%);
+    transform: scale( .75 ) translateX(-13%);
   }
   60%
   {
-    transform: scale( .6 ) translate(-13%, -50%);
+    transform: scale( .6 ) translateX(-13%);
   }
   80%
   {
-    transform: scale( .75 ) translate(-13%, -50%);
+    transform: scale( .75 ) translateX(-13%);
   }
   100%
   {
-    transform: scale( .6 ) translate(-13%, -50%);
+    transform: scale( .6 ) translateX(-13%);
   }
 }
 
@@ -71,23 +71,23 @@
 {
   0%
   {
-    transform: rotate(0deg);
+    transform: rotate(0deg) translateY(0);
   }
   25%
   {
-    transform: rotate(-3deg);    
+    transform: rotate(-3deg) translateY(-12px);    
   }
   50%
   {
-    transform: rotate(0deg);
+    transform: rotate(0deg) translateY(-25px);
   }
   75%
   {
-    transform: rotate(3deg);
+    transform: rotate(3deg) translateY(-20px);
   }
   100%
   {
-    transform: rotate(0deg);
+    transform: rotate(0deg) translateY(0);
   }
 }
 
@@ -117,7 +117,7 @@
 @keyframes fishMove
 {
   0% {}
-  100% {transform: scale(.2) translate(-500%, 40%);}
+  100% {transform: scale(.2) translate(-1000%, 40%);}
 }
 
 @keyframes meFloat {
