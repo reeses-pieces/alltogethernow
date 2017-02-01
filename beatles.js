@@ -76,7 +76,7 @@ const keyFrames = {
   "i": showImage.bind(beatlesOutside, {left: -49}),
   "j": showImage.bind(beatlesOutside, {left: 0.1, centered: true}, true),
   "waves": showImage.bind(waves, {}, true),
-  "sky": showImage.bind(mainContainer, {class: "skyblue"}),
+  "sky": showImage.bind(mainContainer, {addClass: "skyblue"}),
   "ship": showImage.bind(ship),
   "meadow": showImage.bind(meadow, {}, true),
   "tree": showImage.bind(tree),
@@ -86,7 +86,7 @@ const keyFrames = {
   "school": showImage.bind(school),
   "trunk": showImage.bind(treeTrunk),
   "skip": showImage.bind(jumpRope),
-  "oceanblue": showImage.bind(mainContainer, {class: "oceanblue"}, true),
+  "oceanblue": showImage.bind(mainContainer, {addClass: "oceanblue"}, true),
   "clownfish": showImage.bind(clownFish),
   "sub": showImage.bind(sub),
   "me-paul": meImage.bind(mePaul),
@@ -95,10 +95,10 @@ const keyFrames = {
   "me-ringo": meImage.bind(meRingo),
   "bubbles": startBubbleCloner.bind(null),
   "clearBubbles": stopBubbleCloner.bind(null),
-  "black": showImage.bind(standing, {class: "blackbg"}, true),
-  "white": showImage.bind(standing, {class: "whitebg"}, true),
-  "green": showImage.bind(standing, {class: "greenbg"}, true),
-  "red": showImage.bind(standing, {class: "redbg"}, true),
+  "black": showImage.bind(standing, {addClass: "blackbg"}, true),
+  "white": showImage.bind(standing, {addClass: "whitebg"}, true),
+  "green": showImage.bind(standing, {addClass: "greenbg"}, true),
+  "red": showImage.bind(standing, {addClass: "redbg"}, true),
   "friend to bed": showImage.bind(friendBed, {}, true)
 };
 
@@ -241,8 +241,9 @@ function handleArgs(args) {
   if(args.centered) {
     this.css({'width': "100%", 'height': "100%"});
   }
-  if(args.class) {
-    this.addClass(args.class);
+  if(args.addClass) {
+    console.log('args.addClass', args.addClass);
+    this.addClass(args.addClass);
   }
 }
 
@@ -302,4 +303,5 @@ const mainContainerEventListener = function() {
 assets.children().hide();
 // $(".bubble").show();
 // DEBUG!
-audio.currentTime = 53.0;
+// audio.currentTime = 53.0;
+audio.currentTime = 10;

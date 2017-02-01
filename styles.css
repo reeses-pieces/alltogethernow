@@ -53,6 +53,8 @@ h2 {
   box-shadow:0 0 5px 5px rgba(0,0,0,0.1);
 }
 
+.whitebg {background: white;}
+
 .abs-pos {
   position: absolute;
 }
@@ -275,7 +277,6 @@ h2 {
 }
 
 .blackbg {background: black}
-.whitebg {background: white;}
 .greenbg {background: green;}
 .redbg {background: red;}
 
