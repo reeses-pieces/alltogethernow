@@ -169,12 +169,14 @@ function meImage() {
   this.css("animation", "float 15s linear forwards");
 }
 
-// Clone bubble, randomize scale and left css
+// Clone bubble, randomize scale, left, and animation duration 
 function cloneBubbles() {
   var clone = $(".bubble").clone();
-  var randomDec = Math.random();
+  var randomDec = Math.random() + 0.2;
+  var randomSec = (Math.random() * 15) + 5;
   clone.css('transform', `scale(${randomDec})`);
   clone.css('left', `${randomDec * 100}%`);
+  clone.css('animation', `float ${randomSec}s linear forwards`);
   clone.appendTo("#assets");
 }
 

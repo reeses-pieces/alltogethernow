@@ -265,7 +265,7 @@ h2 {
 
 .bubble {
   top: 100%;
-  animation: float 15s linear forwards;
+  /*animation: float 15s linear forwards;*/
 }
 
 audio {
