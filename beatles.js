@@ -6,7 +6,8 @@ $(document).ready(function() {
   bubbleAnimationEventListener();
 });
 
-let checker; // Var for interval checker
+let timeChecker; // Var for interval checker
+let bubbleInterval;
 const audio = document.querySelector("#main-audio");
 const assets = $("#assets");
 const mainContainer = $("#main-container");
@@ -90,7 +91,8 @@ const keyFrames = {
   "me-john": meImage.bind(meJohn),
   "me-george": meImage.bind(meGeorge),
   "me-ringo": meImage.bind(meRingo),
-  "bubbles": startBubbleCloner.bind(null)
+  "bubbles": startBubbleCloner.bind(null),
+  "clearBubbles": stopBubbleCloner.bind(null)
 };
 
 // Timings for keyframes
@@ -137,7 +139,8 @@ const timings = {
   "40.5": "me-john",
   "41.3": "me-george",
   "42.3": "me-ringo",
-  "42.9": "bubbles"
+  "42.8": "bubbles",
+  "53.0": "clearBubbles"
 };
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
@@ -169,15 +172,20 @@ function tableImage(tableName, hide=false) {
 function meImage() {
   meList.show();
   this.css("opacity", "1");
-  this.css("animation", "float 15s linear forwards");
+  this.css("animation", "meFloat 15s linear forwards");
 }
 
 function getRandom(min, max) {
   return Math.random() * (max - min) + min;
 }
 
+// Let the bubble cloning commence!
 function startBubbleCloner() {
-  setInterval(cloneBubbles, 1000);
+  bubbleInterval = setInterval(cloneBubbles, 1000);
+}
+
+function stopBubbleCloner() {
+  clearInterval(bubbleInterval);
 }
 
 // Clone bubble, randomize scale, left, and animation duration 
@@ -189,8 +197,8 @@ function cloneBubbles() {
     let randomDec = getRandom(0.3, 1);
     let randomSec = getRandom(5, 15);
     clone.css('transform', `scale(${randomDec})`);
-    clone.css('left', `${Math.random() * 100}%`);
-    clone.css('animation', `float ${randomSec}s linear forwards`);
+    clone.css('left', `${Math.random() * 90}%`);
+    clone.css('animation', `float ${randomSec}s linear forwards, bubbleRotate 2.5s linear forwards infinite`);
     clone.appendTo("#assets");
   });
 }
@@ -259,7 +267,7 @@ function timingChecker() {
 const startAudioEventListener = function() {
   $(audio).on('play', function() {
     console.log('starting');
-    checker = setInterval(function() {
+    timeChecker = setInterval(function() {
       timingChecker();
     }, 100);
   });
@@ -268,7 +276,7 @@ const startAudioEventListener = function() {
 const stopAudioEventListener = function() {
   $(audio).on("pause", function() {
     console.log('clearing');
-    clearInterval(checker);
+    clearInterval(timeChecker);
   });
 };
 

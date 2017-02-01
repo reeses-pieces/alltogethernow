@@ -120,6 +120,52 @@
   100% {transform: scale(.2) translate(-500%, 40%);}
 }
 
+@keyframes meFloat {
+  0%
+  {
+    transform: rotate(0deg) translateY(0%);
+  }
+  25%
+  {
+    transform: rotate(-10deg) translateY(-150%);    
+  }
+  50%
+  {
+    transform: rotate(0deg) translateY(-300%);
+  }
+  75%
+  {
+    transform: rotate(10deg) translateY(-450%);
+  }
+  100%
+  {
+    transform: rotate(0deg) translateY(-600%);
+  }
+}
+
+@keyframes bubbleRotate {
+  0%
+  {
+    transform: rotate(0deg);
+  }
+  25%
+  {
+    transform: rotate(-10deg);    
+  }
+  50%
+  {
+    transform: rotate(0deg);
+  }
+  75%
+  {
+    transform: rotate(10deg);
+  }
+  100%
+  {
+    transform: rotate(0deg);
+  }
+}
+
 @keyframes float
 {
   0% {}
