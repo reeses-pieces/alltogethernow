@@ -49,6 +49,8 @@ const meGeorge = $("#me-george");
 const meRingo = $("#me-ringo");
 const clownFish = $("#clownfish");
 const bubbles = $(".bubble");
+const standing = $("#standing");
+const friendBed = $("#friend-text");
 
 
 const keyFrames = {
@@ -92,7 +94,12 @@ const keyFrames = {
   "me-george": meImage.bind(meGeorge),
   "me-ringo": meImage.bind(meRingo),
   "bubbles": startBubbleCloner.bind(null),
-  "clearBubbles": stopBubbleCloner.bind(null)
+  "clearBubbles": stopBubbleCloner.bind(null),
+  "black": showImage.bind(standing, {class: "blackbg"}, true),
+  "white": showImage.bind(standing, {class: "whitebg"}, true),
+  "green": showImage.bind(standing, {class: "greenbg"}, true),
+  "red": showImage.bind(standing, {class: "redbg"}, true),
+  "friend to bed": showImage.bind(friendBed, {}, true)
 };
 
 // Timings for keyframes
@@ -139,8 +146,13 @@ const timings = {
   "40.5": "me-john",
   "41.3": "me-george",
   "42.3": "me-ringo",
-  "42.8": "bubbles",
-  "53.0": "clearBubbles"
+  "42.6": "bubbles",
+  "53.0": "clearBubbles",
+  "53.3": "black",
+  "54.0": "white",
+  "54.6": "green",
+  "55.2": "red",
+  "55.9": "friend to bed"
 };
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
@@ -224,7 +236,6 @@ function showImage(args={}, hide=false) {
 
 function handleArgs(args) {
   if(args.top || args.left) {
-    console.log(args.left);
     this.css({'top': `${args.top}%`, 'left': `${args.left}%`});
   }
   if(args.centered) {
@@ -291,4 +302,4 @@ const mainContainerEventListener = function() {
 assets.children().hide();
 // $(".bubble").show();
 // DEBUG!
-audio.currentTime = 38.0;
+audio.currentTime = 53.0;
