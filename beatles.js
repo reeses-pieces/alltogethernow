@@ -1,7 +1,7 @@
 $(document).ready(function() {
   startAudioEventListener();
   stopAudioEventListener();
-  mainContainerEventListener();
+  // mainContainerEventListener();
   $(window).on('keyup', handleControls);
   bubbleAnimationEventListener();
 });
@@ -9,6 +9,7 @@ $(document).ready(function() {
 let timeChecker; // Var for interval checker
 let bubbleInterval;
 const audio = document.querySelector("#main-audio");
+const pop = document.querySelector("#pop");
 const assets = $("#assets");
 const mainContainer = $("#main-container");
 const words = $("#words");
@@ -211,7 +212,10 @@ function cloneBubbles() {
 
 // Removes bubble when offscreen
 const bubbleAnimationEventListener = function() {
-  $(".bubble").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function() {
+  $(".bubble").on('webkitAnimationEnd oanimationend msAnimationEnd animationend click', function(e) {
+    if(e.type === "click") {
+      pop.play();
+    }
     this.remove();
     console.log("REMOVED!");
   });
