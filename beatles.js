@@ -1,7 +1,7 @@
 $(document).ready(function() {
   startAudioEventListener();
   stopAudioEventListener();
-  // mainContainerEventListener();
+  mainContainerEventListener();
   $(window).on('keyup', handleControls);
   bubbleAnimationEventListener();
 });
@@ -188,10 +188,12 @@ function getRandom(min, max) {
 
 // Let the bubble cloning commence!
 function startBubbleCloner() {
+  startBubbleCloner.called = true;
   bubbleInterval = setInterval(cloneBubbles, 1000);
 }
 
 function stopBubbleCloner() {
+  stopBubbleCloner.called = true;
   clearInterval(bubbleInterval);
 }
 
@@ -293,7 +295,10 @@ const stopAudioEventListener = function() {
 // Control playback with mouse click
 const mainContainerEventListener = function() {
   $(mainContainer).on("click", function(e) {
-    handleControls(e, click=true);
+    // This is to allow bubble pops by clicking during all together now scene
+    if(!startBubbleCloner.called || stopBubbleCloner.called) {
+      handleControls(e, click=true);
+    }
   });
 };
 
