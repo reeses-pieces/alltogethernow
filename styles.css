@@ -281,14 +281,19 @@ h2 {
 
 /*Colors*/
 
-#album-container {
+#colors-container {
   height: 50%;
   display: flex;
   align-items: center;
 }
 
-#album-container img {
+#colors-container img {
+  opacity: 0;
 }
+
+.blackbg {background-color: black};
+.greenbg {background-color: green};
+.redbg {background-color: red};
 
 
 audio {

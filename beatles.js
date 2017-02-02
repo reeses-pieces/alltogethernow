@@ -51,6 +51,7 @@ const meGeorge = $("#me-george");
 const meRingo = $("#me-ringo");
 const clownFish = $("#clownfish");
 const bubbles = $(".bubble");
+const colorsDiv = $("#colors-container");
 const blackAlbum = $("#black-album");
 const whiteAlbum = $("#white-album");
 const greenAlbum = $("#green-album");
@@ -59,20 +60,20 @@ const friendBed = $("#friend-text");
 
 
 const keyFrames = {
-  "one": tableImage.bind(john1, numsTable, true),
-  "two": tableImage.bind(ringo2),
-  "three": tableImage.bind(george3),
-  "four": tableImage.bind(paul4),
+  "one": childImage.bind(john1, numsTable, true),
+  "two": childImage.bind(ringo2),
+  "three": childImage.bind(george3),
+  "four": childImage.bind(paul4),
   "little more": showImage.bind(littleMore, {}, true),
   "five": slideInPortraits.bind(johnHead, {left: "-102px"}, true),
   "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
   "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
   "eight": slideInPortraits.bind(ringoHead, {bottom: "-102px"}),
   "ten": showImage.bind(loveClass, {}, true),
-  "a": tableImage.bind(aPaul, alphaTable, true),
-  "b": tableImage.bind(bJohn),
-  "c": tableImage.bind(cRingo),
-  "d": tableImage.bind(dGeorge),
+  "a": childImage.bind(aPaul, alphaTable, true),
+  "b": childImage.bind(bJohn),
+  "c": childImage.bind(cRingo),
+  "d": childImage.bind(dGeorge),
   "friend to tea": showImage.bind(friendTea, {}, true),
   "e": showImage.bind(beatlesOutside, {left: -1} , true),
   "f": showImage.bind(beatlesOutside, {left: -12}),
@@ -100,10 +101,10 @@ const keyFrames = {
   "me-ringo": meImage.bind(meRingo),
   "bubbles": startBubbleCloner.bind(null),
   "clearBubbles": stopBubbleCloner.bind(null),
-  // "black": showImage.bind(standing, {addClass: "blackbg"}, true),
-  // "white": showImage.bind(standing, {addClass: "whitebg"}, true),
-  // "green": showImage.bind(standing, {addClass: "greenbg"}, true),
-  // "red": showImage.bind(standing, {addClass: "redbg"}, true),
+  "black": childImage.bind(blackAlbum, colorsDiv, true),
+  "white": childImage.bind(whiteAlbum, colorsDiv, true),
+  "green": childImage.bind(greenAlbum, colorsDiv, true),
+  "red": childImage.bind(redAlbum, colorsDiv, true),
   "friend to bed": showImage.bind(friendBed, {}, true)
 };
 
@@ -169,12 +170,12 @@ function slideInPortraits(args={}, first=false) {
   this.animate(args, 300);
 }
 
-function tableImage(tableName, hide=false) {
+function childImage(parentName, hide=false) {
   if(hide) {
     assets.children().hide();
   }
-  if(tableName) {
-    tableName.show();
+  if(parentName) {
+    parentName.show();
   }
   this.css("opacity", "1");
 }
@@ -307,7 +308,7 @@ const mainContainerEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-$("#album-container").show();
+// $("#album-container").show();
 // DEBUG!
 // audio.currentTime = 53.0;
 audio.currentTime = 53.2;
