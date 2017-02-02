@@ -240,7 +240,7 @@ h2 {
 /*Look at me*/
 
 #clownfish {
-  transform: scale(.6);
+  transform: scale(.4);
   right: -10%;
   top: 30%;
   animation: fishMove 15s 1 linear forwards;
