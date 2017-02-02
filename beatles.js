@@ -148,7 +148,7 @@ const timings = {
   "40.5": "me-john",
   "41.3": "me-george",
   "42.3": "me-ringo",
-  "42.6": "bubbles",
+  "42.4": "bubbles",
   "53.0": "clearBubbles",
   "53.3": "black",
   "54.0": "white",

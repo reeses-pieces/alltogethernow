@@ -240,8 +240,8 @@ h2 {
 /*Look at me*/
 
 #clownfish {
-  transform: scale(.24);
-  right: 10%;
+  transform: scale(.6);
+  right: -10%;
   top: 30%;
   animation: fishMove 15s 1 linear forwards;
 }
@@ -276,7 +276,7 @@ h2 {
 /*All Together Now*/
 
 .bubble {
-  bottom: -35%;
+  bottom: -30%;
 }
 
 /*Colors*/
