@@ -51,7 +51,10 @@ const meGeorge = $("#me-george");
 const meRingo = $("#me-ringo");
 const clownFish = $("#clownfish");
 const bubbles = $(".bubble");
-const standing = $("#standing");
+const blackAlbum = $("#black-album");
+const whiteAlbum = $("#white-album");
+const greenAlbum = $("#green-album");
+const redAlbum = $("#red-album");
 const friendBed = $("#friend-text");
 
 
@@ -97,10 +100,10 @@ const keyFrames = {
   "me-ringo": meImage.bind(meRingo),
   "bubbles": startBubbleCloner.bind(null),
   "clearBubbles": stopBubbleCloner.bind(null),
-  "black": showImage.bind(standing, {addClass: "blackbg"}, true),
-  "white": showImage.bind(standing, {addClass: "whitebg"}, true),
-  "green": showImage.bind(standing, {addClass: "greenbg"}, true),
-  "red": showImage.bind(standing, {addClass: "redbg"}, true),
+  // "black": showImage.bind(standing, {addClass: "blackbg"}, true),
+  // "white": showImage.bind(standing, {addClass: "whitebg"}, true),
+  // "green": showImage.bind(standing, {addClass: "greenbg"}, true),
+  // "red": showImage.bind(standing, {addClass: "redbg"}, true),
   "friend to bed": showImage.bind(friendBed, {}, true)
 };
 
@@ -304,7 +307,7 @@ const mainContainerEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-// $(".bubble").show();
+$("#album-container").show();
 // DEBUG!
 // audio.currentTime = 53.0;
-audio.currentTime = 38;
+audio.currentTime = 53.2;
