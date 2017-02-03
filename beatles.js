@@ -3,6 +3,7 @@ $(document).ready(function() {
   stopAudioEventListener();
   mainContainerEventListener();
   $(window).on('keyup', handleControls);
+  bubbleClickEventListener();
   bubbleAnimationEventListener();
 });
 
@@ -65,10 +66,10 @@ const keyFrames = {
   "three": childImage.bind(george3),
   "four": childImage.bind(paul4),
   "little more": showImage.bind(littleMore, {}, true),
-  "five": slideInPortraits.bind(johnHead, {left: "-102px"}, true),
-  "six": slideInPortraits.bind(paulHead, {right: "-102px"}),
-  "seven": slideInPortraits.bind(georgeHead, {top: "-102px"}),
-  "eight": slideInPortraits.bind(ringoHead, {bottom: "-102px"}),
+  "five": animateObj.bind(johnHead, {left: "-102px"}, true),
+  "six": animateObj.bind(paulHead, {right: "-102px"}),
+  "seven": animateObj.bind(georgeHead, {top: "-102px"}),
+  "eight": animateObj.bind(ringoHead, {bottom: "-102px"}),
   "ten": showImage.bind(loveClass, {}, true),
   "a": childImage.bind(aPaul, alphaTable, true),
   "b": childImage.bind(bJohn),
@@ -162,8 +163,8 @@ const timings = {
 };
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
-function slideInPortraits(args={}, first=false) {
-  if(first) {
+function animateObj(args={}, hide=false) {
+  if(hide) {
     assets.children().hide();
   }
   this.show();
@@ -209,19 +210,22 @@ function cloneBubbles() {
     let clone = jbubble.clone(true);
     let randomLeft = getRandom(-10, 90);
     let randomSec = getRandom(5, 15);
-    // clone.css('transform', `scale(${randomDec})`);
     clone.css('left', `${randomLeft}%`);
     clone.css('animation', `float ${randomSec}s linear forwards, bubbleRotate 2.5s linear forwards infinite`);
     clone.appendTo("#assets");
   });
 }
 
+const bubbleClickEventListener = function() {
+  $(".bubble").on("click", function() {
+      pop.play();
+      this.remove();
+  });
+};
+
 // Removes bubble when offscreen
 const bubbleAnimationEventListener = function() {
-  $(".bubble").on('webkitAnimationEnd oanimationend msAnimationEnd animationend click', function(e) {
-    if(e.type === "click") {
-      pop.play();
-    }
+  $(".bubble").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
     this.remove();
     console.log("REMOVED!");
   });
@@ -311,4 +315,4 @@ assets.children().hide();
 // $("#album-container").show();
 // DEBUG!
 // audio.currentTime = 53.0;
-audio.currentTime = 53.2;
+audio.currentTime = 37;
