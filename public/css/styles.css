@@ -301,6 +301,7 @@ audio {
 }
 
 #audio-container {
+  display: none;
   max-width: 450px;
   margin:25px auto;
   border-radius:5px;
