@@ -43,7 +43,7 @@ h2 {
 }
 
 #main-container {
-  margin: auto;
+  margin: 50px auto;
   width: 1280px;
   height: 720px;
   border-radius: 15px;
@@ -51,6 +51,10 @@ h2 {
   overflow: hidden;
   color: black;
   box-shadow:0 0 5px 5px rgba(0,0,0,0.1);
+}
+
+#main-container:after {
+  margin-bottom: 100px;
 }
 
 .whitebg {background: white;}
@@ -308,4 +312,18 @@ audio {
   padding: 5px 3px;
   color: black;
   text-align: center
+}
+
+#play-btn {
+  z-index: 10;
+}
+
+#pause-btn {
+  z-index: 10;
+  display: none;
+}
+
+.controls {
+  width: 10%;
+  height: 15%;
 }

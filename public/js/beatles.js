@@ -2,14 +2,18 @@ $(document).ready(function() {
   startAudioEventListener();
   stopAudioEventListener();
   mainContainerEventListener();
+  mainContainerMouseEventListener();
   $(window).on('keyup', handleControls);
   bubbleClickEventListener();
   bubbleAnimationEventListener();
+  displayPlaybackControls();
 });
 
 let timeChecker; // Var for interval checker
 let bubbleInterval;
 const audio = document.querySelector("#main-audio");
+const playBtn = $("#play-btn");
+const pauseBtn = $("#pause-btn");
 const pop = document.querySelector("#pop");
 const assets = $("#assets");
 const mainContainer = $("#main-container");
@@ -227,7 +231,6 @@ const bubbleClickEventListener = function() {
 const bubbleAnimationEventListener = function() {
   $(".bubble").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
     this.remove();
-    console.log("REMOVED!");
   });
 };
 
@@ -258,11 +261,8 @@ function handleArgs(args) {
 function handleControls(e, click=false) {
   // Space, enter, or click
   if (click || e.keyCode === 32 || e.keyCode === 13) {
-    if(audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
+    let command = audio.paused ? audio.play() : audio.pause();
+    displayPlaybackControls();
   }
 }
 
@@ -283,6 +283,29 @@ function timingChecker() {
     keyFrames[command]();
   }
 }
+
+function displayPlaybackControls() {
+    if(audio.paused) {
+      pauseBtn.hide();
+      playBtn.show();
+    } else {
+      pauseBtn.show();
+      playBtn.hide();
+    }
+}
+
+function hidePlaybackControls() {
+    $(".controls").fadeOut("slow");
+}
+
+const mainContainerMouseEventListener = function() {
+  mainContainer.on("mouseenter", function() {
+    displayPlaybackControls();
+  });
+  mainContainer.on("mouseleave", function() {
+    hidePlaybackControls();
+  });
+};
 
 const startAudioEventListener = function() {
   $(audio).on('play', function() {
