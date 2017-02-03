@@ -1,6 +1,6 @@
 @font-face {
   font-family:"YellowSubmarine";
-  src: url("beatles.ttf") /* TTF file for CSS3 browsers */
+  src: url("../fonts/beatles.ttf") /* TTF file for CSS3 browsers */
 }
 
 html {
