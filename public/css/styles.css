@@ -295,10 +295,16 @@ h2 {
   opacity: 0;
 }
 
-.blackbg {background-color: black};
-.greenbg {background-color: green};
-.redbg {background-color: red};
+.blackbg {background-color: black;}
+.greenbg {background-color: green;}
+.redbg {background-color: red;}
 
+#slide {
+  left: 73%;
+  top: 37%;
+  transition: left 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 1.5, 0.58, 1);
+}
 
 audio {
   box-shadow:10px 10px 0 rgba(0,0,0,0.1);

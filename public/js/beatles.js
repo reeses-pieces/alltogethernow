@@ -62,6 +62,7 @@ const whiteAlbum = $("#white-album");
 const greenAlbum = $("#green-album");
 const redAlbum = $("#red-album");
 const friendBed = $("#friend-text");
+const mosaic = $("#mosaic");
 
 
 const keyFrames = {
@@ -110,7 +111,12 @@ const keyFrames = {
   "white": childImage.bind(whiteAlbum, colorsDiv, true),
   "green": childImage.bind(greenAlbum, colorsDiv, true),
   "red": childImage.bind(redAlbum, colorsDiv, true),
-  "friend to bed": showImage.bind(friendBed, {}, true)
+  "friend to bed": showImage.bind(friendBed, {}, true),
+  "pink": showImage.bind($(".tile"), {}, true),
+  "brown": showImage.bind($("#slide"), {left: 57.4}),
+  "yellow": showImage.bind($("#slide"), {left: 42}),
+  "orange": showImage.bind($("#slide"), {left: 26.6}),
+  "blue": showImage.bind($("#slide"), {left: 11}),
 };
 
 // Timings for keyframes
@@ -163,7 +169,12 @@ const timings = {
   "54.0": "white",
   "54.6": "green",
   "55.2": "red",
-  "55.9": "friend to bed"
+  "55.9": "friend to bed",
+  "58.3": "pink",
+  "58.9": "brown",
+  "59.4": "yellow",
+  "59.8": "orange",
+  "60.2": "blue"
 };
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
@@ -335,7 +346,8 @@ const mainContainerEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-// $("#album-container").show();
+// $("#mosaic").show();
+// $("#slide").show();
 // DEBUG!
-// audio.currentTime = 53.0;
+audio.currentTime = 57.0;
 // audio.currentTime = 37;
