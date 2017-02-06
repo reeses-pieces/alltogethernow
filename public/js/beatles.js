@@ -117,6 +117,7 @@ const keyFrames = {
   "yellow": showImage.bind($("#slide"), {left: 42}),
   "orange": showImage.bind($("#slide"), {left: 26.6}),
   "blue": showImage.bind($("#slide"), {left: 11}),
+  "moveSub": moveAcrossScreen.bind($("#sub"))
 };
 
 // Timings for keyframes
@@ -178,6 +179,8 @@ const timings = {
   "61.1": "love",
   "63.4": "oceanblue",
   "63.5": "bubbles",
+  "64.5": "moveSub",
+  "69.5": "moveSub"
 
 };
 
@@ -233,6 +236,22 @@ function cloneBubbles() {
     clone.css('animation', `float ${randomSec}s linear forwards, bubbleRotate 2.5s linear forwards infinite`);
     clone.appendTo("#assets");
   });
+}
+
+function moveAcrossScreen() {
+  // Need to work on conjunction with animation. Still needs tweaking.
+  this.show();
+  let currentLeft = this.css("left").replace(/px/gi, '');
+  console.log('currentLeft', currentLeft);
+  let targetLeft = currentLeft < 0 ? '100%' : "-60%";
+  console.log('targetLeft', targetLeft);
+  let targetTop  = getRandom(0, 45);
+  let targetScale = getRandom(0.4, 1);
+  this.css({"left": targetLeft, "top": targetTop});
+  if(targetLeft === "-60%") {
+    this.css({"transform": `rotateY(180deg) scale${targetScale}`});
+  }
+
 }
 
 const bubbleClickEventListener = function() {
@@ -353,5 +372,5 @@ assets.children().hide();
 // $("#mosaic").show();
 // $("#slide").show();
 // DEBUG!
-audio.currentTime = 57.0;
+audio.currentTime = 63.0;
 // audio.currentTime = 37;
