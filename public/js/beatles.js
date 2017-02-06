@@ -75,7 +75,7 @@ const keyFrames = {
   "six": animateObj.bind(paulHead, {right: "-102px"}),
   "seven": animateObj.bind(georgeHead, {top: "-102px"}),
   "eight": animateObj.bind(ringoHead, {bottom: "-102px"}),
-  "ten": showImage.bind(loveClass, {}, true),
+  "love": showImage.bind(loveClass, {}, true),
   "a": childImage.bind(aPaul, alphaTable, true),
   "b": childImage.bind(bJohn),
   "c": childImage.bind(cRingo),
@@ -130,7 +130,7 @@ const timings = {
   "16.2": "six",
   "16.9": "seven",
   "17.2": "eight",
-  "18.3": "ten",
+  "18.3": "love",
   "20.7": "a",
   "21.4": "b",
   "22.0": "c",
@@ -142,7 +142,7 @@ const timings = {
   "27.2": "h",
   "27.6": "i",
   "28.0": "j",
-  "28.7": "ten",
+  "28.7": "love",
   "30.9": "waves",
   "31.5": "sky",
   "32.0": "ship",
@@ -174,7 +174,11 @@ const timings = {
   "58.9": "brown",
   "59.4": "yellow",
   "59.8": "orange",
-  "60.2": "blue"
+  "60.2": "blue",
+  "61.1": "love",
+  "63.4": "oceanblue",
+  "63.5": "bubbles",
+
 };
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
