@@ -333,16 +333,12 @@ audio {
   text-align: center
 }
 
-#play-btn {
-  z-index: 10;
-}
-
-#pause-btn {
-  z-index: 10;
+#pause-btn, #replay-btn {
   display: none;
 }
 
 .controls {
+  z-index: 10;
   width: 9%;
   height: 16%;
 }

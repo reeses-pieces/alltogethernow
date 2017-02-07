@@ -15,6 +15,7 @@ let bubbleInterval;
 const audio = document.querySelector("#main-audio");
 const playBtn = $("#play-btn");
 const pauseBtn = $("#pause-btn");
+const replayBtn = $("#replay-btn");
 const pop = document.querySelector("#pop");
 const assets = $("#assets");
 const mainContainer = $("#main-container");
@@ -66,6 +67,7 @@ const friendBed = $("#friend-text");
 const mosaic = $("#mosaic");
 
 const keyFrames = {
+  "clear": showImage.bind(mainContainer, {}, true),
   "one": childImage.bind(john1, {parentName: numsTable}, true),
   "two": childImage.bind(ringo2),
   "three": childImage.bind(george3),
@@ -124,6 +126,7 @@ const keyFrames = {
 
 // Timings for keyframes
 const timings = {
+  "0.1": "clear",
   "10.5": "one",
   "11.2": "two",
   "11.9": "three",
@@ -217,6 +220,29 @@ const timings = {
 };
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
+function showImage(args={}, hide=false) {
+  if(hide) {
+    assets.children().hide();
+    mainContainer.removeClass().addClass("whitebg");
+  }
+  this.show();
+  if(args) {
+    handleArgs.call(this, args);
+  }
+}
+
+function handleArgs(args) {
+  if(args.top || args.left) {
+    this.css({'top': `${args.top}%`, 'left': `${args.left}%`});
+  }
+  if(args.centered) {
+    this.css({'width': "100%", 'height': "100%"});
+  }
+  if(args.addClass) {
+    this.addClass(args.addClass);
+  }
+}
+
 function animateObj(args={}, hide=false) {
   if(hide) {
     assets.children().hide();
@@ -308,29 +334,6 @@ const meBubbleAnimationEventListener = function() {
   });
 };
 
-function showImage(args={}, hide=false) {
-  if(hide) {
-    assets.children().hide();
-    mainContainer.removeClass().addClass("whitebg");
-  }
-  this.show();
-  if(args) {
-    handleArgs.call(this, args);
-  }
-}
-
-function handleArgs(args) {
-  if(args.top || args.left) {
-    this.css({'top': `${args.top}%`, 'left': `${args.left}%`});
-  }
-  if(args.centered) {
-    this.css({'width': "100%", 'height': "100%"});
-  }
-  if(args.addClass) {
-    this.addClass(args.addClass);
-  }
-}
-
 function handleControls(e, click=false) {
   // Space or click
   if (click || e.keyCode === 32) {
@@ -358,7 +361,11 @@ function timingChecker() {
 }
 
 function displayPlaybackControls() {
-    if(audio.paused) {
+    if(audio.ended) {
+      pauseBtn.hide();
+      playBtn.hide();
+      replayBtn.show();
+    } else if(audio.paused) {
       pauseBtn.hide();
       playBtn.show();
     } else {
