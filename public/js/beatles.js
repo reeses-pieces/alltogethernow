@@ -7,7 +7,7 @@ $(document).ready(function() {
   bubbleClickEventListener();
   bubbleAnimationEventListener();
   meBubbleAnimationEventListener();
-  displayPlaybackControls();
+  // displayPlaybackControls();
 });
 
 let timeChecker; // Var for interval checker
@@ -365,6 +365,7 @@ function displayPlaybackControls() {
       pauseBtn.show();
       playBtn.hide();
     }
+    setTimeout(hidePlaybackControls, 2000);
 }
 
 function hidePlaybackControls() {
@@ -372,11 +373,8 @@ function hidePlaybackControls() {
 }
 
 const mainContainerMouseEventListener = function() {
-  mainContainer.on("mouseenter", function() {
+  mainContainer.on("mousemove", function() {
     displayPlaybackControls();
-  });
-  mainContainer.on("mouseleave", function() {
-    hidePlaybackControls();
   });
 };
 
@@ -398,11 +396,8 @@ const stopAudioEventListener = function() {
 
 // Control playback with mouse click
 const mainContainerEventListener = function() {
-  $(mainContainer).on("click", function(e) {
-    // This is to allow bubble pops by clicking during all together now scene
-    if(!startBubbleCloner.called || stopBubbleCloner.called) {
-      handleControls(e, click=true);
-    }
+  mainContainer.on("click", function(e) {
+    handleControls(e, click=true);
   });
 };
 
