@@ -64,7 +64,6 @@ const redAlbum = $("#red-album");
 const friendBed = $("#friend-text");
 const mosaic = $("#mosaic");
 
-
 const keyFrames = {
   "one": childImage.bind(john1, numsTable, true),
   "two": childImage.bind(ringo2),
@@ -117,6 +116,7 @@ const keyFrames = {
   "yellow": showImage.bind($("#slide"), {left: 42}),
   "orange": showImage.bind($("#slide"), {left: 26.6}),
   "blue": showImage.bind($("#slide"), {left: 11}),
+  "allTogether": showImage.bind($(".together")),
   "moveSub": moveAcrossScreen.bind($("#sub"))
 };
 
@@ -179,6 +179,7 @@ const timings = {
   "61.1": "love",
   "63.4": "oceanblue",
   "63.5": "bubbles",
+  "63.6": "allTogether",
   "64.5": "moveSub",
   "70.5": "moveSub",
   "76.0": "moveSub"
