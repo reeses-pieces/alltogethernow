@@ -186,7 +186,17 @@ const timings = {
   "82.0": "clearBubbles",
   "82.9": "waves",
   "83.4": "sky",
-  "83.5": "ship"
+  "83.5": "ship",
+  "85.3": "meadow",
+  "85.8": "sky",
+  "85.9": "tree",
+  "86.4": "lumberjack",
+  "87.0": "bird",
+  "87.6": "sidewalk",
+  "87.7": "sky",
+  "88.1": "school",
+  "88.2": "trunk",
+  "88.8": "skip"
 };
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
@@ -376,5 +386,5 @@ assets.children().hide();
 // $("#mosaic").show();
 // $("#slide").show();
 // DEBUG!
-audio.currentTime = 60;
+audio.currentTime = 10;
 // audio.currentTime = 37;
