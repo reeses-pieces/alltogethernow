@@ -286,7 +286,7 @@ h2 {
 
 #all-together {
   font-size: 2em;
-  animation: fadeInfadeOut 2s linear 15 forwards, mefloat 5s 30s linear 1 forwards;
+  animation: fadeInfadeOut 2s linear 14 forwards;
   z-index: 10;
 }
 
@@ -311,6 +311,12 @@ h2 {
   top: 37%;
   transition: left 0.05s;
   transition-timing-function: cubic-bezier(0.1, 1.5, 0.58, 1);
+}
+
+#credits-container {
+  opacity: 0;
+  font-size: 0.8em;
+  text-align: left;
 }
 
 audio {

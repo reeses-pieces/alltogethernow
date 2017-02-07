@@ -10,8 +10,6 @@ $(document).ready(function() {
   displayPlaybackControls();
 });
 
-// Need to fix submarine animation
-
 let timeChecker; // Var for interval checker
 let bubbleInterval;
 const audio = document.querySelector("#main-audio");
@@ -120,7 +118,8 @@ const keyFrames = {
   "orange": showImage.bind($("#slide"), {left: 26.6}),
   "blue": showImage.bind($("#slide"), {left: 11}),
   "allTogether": showImage.bind($(".together")),
-  "moveSub": moveAcrossScreen.bind($("#sub-two"))
+  "moveSub": moveAcrossScreen.bind($("#sub-two")),
+  "credits": animateObj.bind($("#credits-container"), {opacity: 1})
 };
 
 // Timings for keyframes
@@ -214,6 +213,7 @@ const timings = {
   "103.0": "moveSub",
   "110.0": "moveSub",
   "118.0": "clearBubbles",
+  "124.7": "credits"
 };
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
@@ -411,5 +411,5 @@ assets.children().hide();
 // $("#mosaic").show();
 // $("#slide").show();
 // DEBUG!
-audio.currentTime = 10;
+audio.currentTime = 88;
 // audio.currentTime = 37;
