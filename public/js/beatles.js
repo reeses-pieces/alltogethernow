@@ -182,7 +182,11 @@ const timings = {
   "63.6": "allTogether",
   "64.5": "moveSub",
   "70.5": "moveSub",
-  "76.0": "moveSub"
+  "76.0": "moveSub",
+  "82.0": "clearBubbles",
+  "82.9": "waves",
+  "83.4": "sky",
+  "83.5": "ship"
 };
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
@@ -372,5 +376,5 @@ assets.children().hide();
 // $("#mosaic").show();
 // $("#slide").show();
 // DEBUG!
-audio.currentTime = 62;
+audio.currentTime = 60;
 // audio.currentTime = 37;
