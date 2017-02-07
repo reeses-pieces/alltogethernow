@@ -372,5 +372,5 @@ assets.children().hide();
 // $("#mosaic").show();
 // $("#slide").show();
 // DEBUG!
-audio.currentTime = 57;
+audio.currentTime = 62;
 // audio.currentTime = 37;
