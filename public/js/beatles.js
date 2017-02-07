@@ -9,6 +9,8 @@ $(document).ready(function() {
   displayPlaybackControls();
 });
 
+// Need to fix submarine animation
+
 let timeChecker; // Var for interval checker
 let bubbleInterval;
 const audio = document.querySelector("#main-audio");
