@@ -254,7 +254,7 @@ h2 {
   left: -60%;
   top: 50%;
   /*animation: subMove 4s cubic-bezier(0.175, 0.460, 0.895, 0.510) forwards 1;*/
-  transition: left 5s ease-in;
+  transition: left 4s ease-in;
   z-index: 3;
 }
 
@@ -281,7 +281,8 @@ h2 {
 /*All Together Now*/
 
 .bubble {
-  bottom: -28%;
+  /*Right below screen*/
+  bottom: -30%;
 }
 
 /*Colors*/

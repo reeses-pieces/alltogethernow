@@ -180,8 +180,8 @@ const timings = {
   "63.4": "oceanblue",
   "63.5": "bubbles",
   "64.5": "moveSub",
-  "69.5": "moveSub"
-
+  "70.5": "moveSub",
+  "76.0": "moveSub"
 };
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
@@ -242,14 +242,13 @@ function moveAcrossScreen() {
   // Need to work on conjunction with animation. Still needs tweaking.
   this.show();
   let currentLeft = this.css("left").replace(/px/gi, '');
-  console.log('currentLeft', currentLeft);
-  let targetLeft = currentLeft < 0 ? '100%' : "-60%";
-  console.log('targetLeft', targetLeft);
-  let targetTop  = getRandom(0, 45);
-  let targetScale = getRandom(0.4, 1);
-  this.css({"left": targetLeft, "top": targetTop});
-  if(targetLeft === "-60%") {
-    this.css({"transform": `rotateY(180deg) scale${targetScale}`});
+  let targetLeft = currentLeft < 0 ? '100%' : "-100%";
+  let targetTop  = getRandom(0, 45) + '%';
+  let targetScale = getRandom(0.2, 1);
+  this.css({"left": targetLeft, "top": targetTop, "transform": `scale(${targetScale})`});
+  // If offscreen on right rotate to face proper direction
+  if(targetLeft == "-100%") {
+    this.css({"transform": `rotateY(180deg) scale(${targetScale})`});
   }
 
 }
