@@ -101,7 +101,7 @@ const keyFrames = {
   "skip": showImage.bind(jumpRope),
   "oceanblue": showImage.bind(mainContainer, {addClass: "oceanblue"}, true),
   "clownfish": showImage.bind(clownFish),
-  "sub": showImage.bind(sub, {addClass: "sub-animation"}),
+  "sub": showImage.bind(sub),
   "me-paul": meImage.bind(mePaul),
   "me-john": meImage.bind(meJohn),
   "me-george": meImage.bind(meGeorge),
@@ -119,7 +119,7 @@ const keyFrames = {
   "orange": showImage.bind($("#slide"), {left: 26.6}),
   "blue": showImage.bind($("#slide"), {left: 11}),
   "allTogether": showImage.bind($(".together")),
-  "moveSub": moveAcrossScreen.bind($("#sub"))
+  "moveSub": moveAcrossScreen.bind($("#sub-two"))
 };
 
 // Timings for keyframes
@@ -227,6 +227,7 @@ function animateObj(args={}, hide=false) {
 function childImage(parentName, hide=false) {
   if(hide) {
     assets.children().hide();
+    mainContainer.removeClass().addClass("whitebg");
   }
   if(parentName) {
     parentName.show();
@@ -248,11 +249,13 @@ function getRandom(min, max) {
 function startBubbleCloner() {
   startBubbleCloner.called = true;
   bubbleInterval = setInterval(cloneBubbles, 1000);
+  stopBubbleCloner.called = false;
 }
 
 function stopBubbleCloner() {
   stopBubbleCloner.called = true;
   clearInterval(bubbleInterval);
+  startBubbleCloner.called = false;
 }
 
 // Clone bubble, randomize scale, left, and animation duration 
@@ -271,11 +274,10 @@ function cloneBubbles() {
 
 function moveAcrossScreen() {
   // Need to work on conjunction with animation. Still needs tweaking.
-  this.removeClass("sub-animation");
   this.show();
   let currentLeft = this.css("left").replace(/px/gi, '');
   let targetLeft = currentLeft < 0 ? '100%' : "-100%";
-  let targetTop  = getRandom(0, 45) + '%';
+  let targetTop  = getRandom(0, 60) + '%';
   let targetScale = getRandom(0.2, 1);
   this.css({"left": targetLeft, "top": targetTop, "transform": `scale(${targetScale})`});
   // If offscreen on right rotate to face proper direction
@@ -295,6 +297,7 @@ const bubbleClickEventListener = function() {
 // Removes bubble when offscreen
 const bubbleAnimationEventListener = function() {
   $(".bubble").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+    console.log('REMOVED BUBBLE!');
     this.remove();
   });
 };
