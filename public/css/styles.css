@@ -281,13 +281,13 @@ h2 {
 /*All Together Now*/
 
 .bubble {
-  /*Right below screen*/
   bottom: -30%;
 }
 
 #all-together {
   font-size: 2em;
   animation: fadeInfadeOut 2s linear infinite forwards;
+  z-index: 10;
 }
 
 /*Colors*/
@@ -337,6 +337,6 @@ audio {
 }
 
 .controls {
-  width: 10%;
-  height: 15%;
+  width: 9%;
+  height: 16%;
 }
