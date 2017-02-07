@@ -239,11 +239,6 @@ function childImage(args={}, hide=false) {
   }
 }
 
-// function meImage() {
-//   meList.show();
-//   this.css("opacity", "1");
-// }
-
 function getRandom(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -307,10 +302,9 @@ const bubbleAnimationEventListener = function() {
 
 const meBubbleAnimationEventListener = function() {
   $(".me-images").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-    console.log('e', e);
-    console.log("FLOATED");
     let image = $(e.target);
     image.css("opacity", "0");
+    image.removeClass("float");
   });
 };
 
