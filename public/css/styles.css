@@ -62,10 +62,6 @@ h2 {
     }
 }
 
-#main-container:after {
-  margin-bottom: 100px;
-}
-
 .whitebg {background: white;}
 
 .abs-pos {
@@ -174,8 +170,8 @@ h2 {
 
 /*Sail the Ship*/
 #waves {
-  bottom: -100px;
-  left: 0px;
+  bottom: -13.8%;
+  left: 0;
   z-index: 3;
   animation: wavesMotion 4s linear infinite alternate;
 }

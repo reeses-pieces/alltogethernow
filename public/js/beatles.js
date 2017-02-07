@@ -297,7 +297,6 @@ function cloneBubbles() {
 }
 
 function moveAcrossScreen() {
-  // Need to work on conjunction with animation. Still needs tweaking.
   this.show();
   let currentLeft = this.css("left").replace(/px/gi, '');
   let targetLeft = currentLeft < 0 ? '100%' : "-100%";
@@ -414,4 +413,4 @@ assets.children().hide();
 // $("#slide").show();
 // DEBUG!
 // audio.currentTime = 88;
-// audio.currentTime = 37;
+// audio.currentTime = 30;
