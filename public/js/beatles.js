@@ -99,7 +99,7 @@ const keyFrames = {
   "skip": showImage.bind(jumpRope),
   "oceanblue": showImage.bind(mainContainer, {addClass: "oceanblue"}, true),
   "clownfish": showImage.bind(clownFish),
-  "sub": showImage.bind(sub),
+  "sub": showImage.bind(sub, {addClass: "sub-animation"}),
   "me-paul": meImage.bind(mePaul),
   "me-john": meImage.bind(meJohn),
   "me-george": meImage.bind(meGeorge),
@@ -165,6 +165,7 @@ const timings = {
   "41.3": "me-george",
   "42.3": "me-ringo",
   "42.4": "bubbles",
+  "43.4": "allTogether",
   "53.0": "clearBubbles",
   "53.3": "black",
   "54.0": "white",
@@ -255,6 +256,7 @@ function cloneBubbles() {
 
 function moveAcrossScreen() {
   // Need to work on conjunction with animation. Still needs tweaking.
+  this.removeClass("sub-animation");
   this.show();
   let currentLeft = this.css("left").replace(/px/gi, '');
   let targetLeft = currentLeft < 0 ? '100%' : "-100%";
@@ -301,14 +303,13 @@ function handleArgs(args) {
     this.css({'width': "100%", 'height': "100%"});
   }
   if(args.addClass) {
-    console.log('args.addClass', args.addClass);
     this.addClass(args.addClass);
   }
 }
 
 function handleControls(e, click=false) {
-  // Space, enter, or click
-  if (click || e.keyCode === 32 || e.keyCode === 13) {
+  // Space or click
+  if (click || e.keyCode === 32) {
     let command = audio.paused ? audio.play() : audio.pause();
     displayPlaybackControls();
   }
@@ -386,5 +387,5 @@ assets.children().hide();
 // $("#mosaic").show();
 // $("#slide").show();
 // DEBUG!
-audio.currentTime = 10;
+audio.currentTime = 60;
 // audio.currentTime = 37;

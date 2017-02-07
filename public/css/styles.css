@@ -94,9 +94,6 @@ h2 {
   border-spacing: 0;
 }
 
-#nums-table td {
-}
-
 .nums {
   opacity: 0;
   border-radius: 5px;
@@ -136,11 +133,6 @@ h2 {
   bottom: -408px;
 }
 
-#altogether {
-  transform: scale(.4);
-  margin: 50px auto;
-}
-
 .love {
   width: 48%;
   display: flex;
@@ -152,7 +144,7 @@ h2 {
 }
 
 #heart {
-  transform: scale( .6 ) translate(-13%, -50%);
+  transform: scale(.6) translate(-13%, -50%);
   animation: heartbeat 2s 1 forwards;
 }
 
@@ -160,7 +152,6 @@ h2 {
 
 #alpha-table {
   margin: auto;
-  /*padding: 50px;*/
 }
 
 #alpha-table td {
@@ -253,9 +244,12 @@ h2 {
 #sub {
   left: -60%;
   top: 50%;
-  /*animation: subMove 4s cubic-bezier(0.175, 0.460, 0.895, 0.510) forwards 1;*/
   transition: left 4s ease-in;
   z-index: 3;
+}
+
+.sub-animation {
+  animation: subMove 4s cubic-bezier(0.175, 0.460, 0.895, 0.510) forwards 1;
 }
 
 #me-list {
