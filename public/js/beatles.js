@@ -197,7 +197,20 @@ const timings = {
   "87.7": "sky",
   "88.1": "school",
   "88.2": "trunk",
-  "88.8": "skip"
+  "88.8": "skip",
+  "90.0": "oceanblue",
+  "90.4": "clownfish",
+  "90.6": "sub",
+  "91.3": "me-paul",
+  "92.0": "me-john",
+  "93.0": "me-george",
+  "93.8": "me-ringo",
+  "94.0": "bubbles",
+  "94.5": "allTogether",
+  "98.0": "moveSub",
+  "103.0": "moveSub",
+  "110.0": "moveSub",
+  "118.0": "clearBubbles",
 };
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
@@ -387,5 +400,5 @@ assets.children().hide();
 // $("#mosaic").show();
 // $("#slide").show();
 // DEBUG!
-audio.currentTime = 60;
+audio.currentTime = 10;
 // audio.currentTime = 37;

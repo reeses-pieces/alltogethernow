@@ -244,7 +244,7 @@ h2 {
 #sub {
   left: -60%;
   top: 50%;
-  transition: left 4s ease-in;
+  transition: left 4s cubic-bezier(0.175, 0.460, 0.895, 0.510);
   z-index: 3;
 }
 
@@ -280,7 +280,7 @@ h2 {
 
 #all-together {
   font-size: 2em;
-  animation: fadeInfadeOut 2s linear infinite forwards;
+  animation: fadeInfadeOut 2s linear 15 forwards, mefloat 5s 30s linear 1 forwards;
   z-index: 10;
 }
 
