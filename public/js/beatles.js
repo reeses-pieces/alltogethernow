@@ -6,6 +6,7 @@ $(document).ready(function() {
   $(window).on('keyup', handleControls);
   bubbleClickEventListener();
   bubbleAnimationEventListener();
+  meBubbleAnimationEventListener();
   displayPlaybackControls();
 });
 
@@ -67,7 +68,7 @@ const friendBed = $("#friend-text");
 const mosaic = $("#mosaic");
 
 const keyFrames = {
-  "one": childImage.bind(john1, numsTable, true),
+  "one": childImage.bind(john1, {parentName: numsTable}, true),
   "two": childImage.bind(ringo2),
   "three": childImage.bind(george3),
   "four": childImage.bind(paul4),
@@ -77,7 +78,7 @@ const keyFrames = {
   "seven": animateObj.bind(georgeHead, {top: "-102px"}),
   "eight": animateObj.bind(ringoHead, {bottom: "-102px"}),
   "love": showImage.bind(loveClass, {}, true),
-  "a": childImage.bind(aPaul, alphaTable, true),
+  "a": childImage.bind(aPaul, {parentName: alphaTable}, true),
   "b": childImage.bind(bJohn),
   "c": childImage.bind(cRingo),
   "d": childImage.bind(dGeorge),
@@ -102,16 +103,16 @@ const keyFrames = {
   "oceanblue": showImage.bind(mainContainer, {addClass: "oceanblue"}, true),
   "clownfish": showImage.bind(clownFish),
   "sub": showImage.bind(sub),
-  "me-paul": meImage.bind(mePaul),
-  "me-john": meImage.bind(meJohn),
-  "me-george": meImage.bind(meGeorge),
-  "me-ringo": meImage.bind(meRingo),
+  "me-paul": childImage.bind(mePaul, {parentName: meList, addClass: "float"}),
+  "me-john": childImage.bind(meJohn, {addClass: "float"}),
+  "me-george": childImage.bind(meGeorge, {addClass: "float"}),
+  "me-ringo": childImage.bind(meRingo, {addClass: "float"}),
   "bubbles": startBubbleCloner.bind(null),
   "clearBubbles": stopBubbleCloner.bind(null),
-  "black": childImage.bind(blackAlbum, colorsDiv, true),
-  "white": childImage.bind(whiteAlbum, colorsDiv, true),
-  "green": childImage.bind(greenAlbum, colorsDiv, true),
-  "red": childImage.bind(redAlbum, colorsDiv, true),
+  "black": childImage.bind(blackAlbum, {parentName: colorsDiv}, true),
+  "white": childImage.bind(whiteAlbum, {parentName: colorsDiv}, true),
+  "green": childImage.bind(greenAlbum, {parentName: colorsDiv}, true),
+  "red": childImage.bind(redAlbum, {parentName: colorsDiv}, true),
   "friend to bed": showImage.bind(friendBed, {}, true),
   "pink": showImage.bind($(".tile"), {}, true),
   "brown": showImage.bind($("#slide"), {left: 57.4}),
@@ -224,22 +225,24 @@ function animateObj(args={}, hide=false) {
   this.animate(args, 300);
 }
 
-function childImage(parentName, hide=false) {
+function childImage(args={}, hide=false) {
   if(hide) {
     assets.children().hide();
     mainContainer.removeClass().addClass("whitebg");
   }
-  if(parentName) {
-    parentName.show();
+  if(args.parentName) {
+    args.parentName.show();
   }
   this.css("opacity", "1");
+  if(args) {
+    handleArgs.call(this, args);
+  }
 }
 
-function meImage() {
-  meList.show();
-  this.css("opacity", "1");
-  this.css("animation", "meFloat 15s linear forwards");
-}
+// function meImage() {
+//   meList.show();
+//   this.css("opacity", "1");
+// }
 
 function getRandom(min, max) {
   return Math.random() * (max - min) + min;
@@ -297,8 +300,17 @@ const bubbleClickEventListener = function() {
 // Removes bubble when offscreen
 const bubbleAnimationEventListener = function() {
   $(".bubble").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-    console.log('REMOVED BUBBLE!');
+    // console.log('REMOVED BUBBLE!');
     this.remove();
+  });
+};
+
+const meBubbleAnimationEventListener = function() {
+  $(".me-images").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+    console.log('e', e);
+    console.log("FLOATED");
+    let image = $(e.target);
+    image.css("opacity", "0");
   });
 };
 

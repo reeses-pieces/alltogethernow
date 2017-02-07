@@ -236,7 +236,7 @@ h2 {
   transform: scale(.4);
   right: -10%;
   top: 30%;
-  animation: fishMove 15s 1 linear forwards;
+  animation: fishMove 20s 1 linear forwards;
 }
 
 #sub {
@@ -272,6 +272,10 @@ h2 {
 
 #me-list img {
   opacity: 0;
+}
+
+.float {
+  animation: meFloat 10s linear forwards;
 }
 
 /*All Together Now*/

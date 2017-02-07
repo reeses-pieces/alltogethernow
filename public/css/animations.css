@@ -104,7 +104,7 @@
 @keyframes fishMove
 {
   0% {}
-  100% {transform: scale(.5) translate(-1000%, 35%);}
+  100% {transform: scale(.5) translate(-1700%, 35%);}
 }
 
 @keyframes meFloat {
