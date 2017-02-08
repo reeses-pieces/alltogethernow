@@ -11,61 +11,61 @@ $(document).ready(function() {
 
 let timeChecker; // Var for time interval checker
 let bubbleInterval; // Var for bubble interval cloner
-const audio = document.querySelector("#main-audio");
-const playBtn = $("#play-btn");
-const pauseBtn = $("#pause-btn");
-const replayBtn = $("#replay-btn");
-const pop = document.querySelector("#pop");
-const assets = $("#assets");
-const mainContainer = $("#main-container");
-const words = $("#words");
-const numsTable = $("#nums-table");
-const john1 = $("#1-john");
-const ringo2 = $("#2-ringo");
-const george3 = $("#3-george");
-const paul4 = $("#4-paul");
-const littleMore = $("#little-more");
-const johnHead = $("#john-head");
-const paulHead = $("#paul-head");
-const georgeHead = $("#george-head");
-const ringoHead = $("#ringo-head");
-const heart = $("#heart");
-const loveClass = $(".love");
-const loveYouText = $("#love-you-text");
-const alphaTable = $("#alpha-table");
-const aPaul = $("#a-paul");
-const bJohn = $("#b-john");
-const cRingo = $("#c-ringo");
-const dGeorge = $("#d-george");
-const friendTea = $("#friend-tea");
-const beatlesOutside = $("#beatles-outside");
-const waves = $("#waves");
-const ship = $("#ship");
-const meadow = $("#meadow");
-const tree = $("#tree");
-const lumberjack = $("#lumberjack");
-const bird = $("#bird");
-const sidewalk = $("#sidewalk");
-const treeTrunk = $("#tree-trunk");
-const jumpRope = $("#jump-rope");
-const school = $("#school");
-const sub = $("#sub");
-const meList = $("#me-list");
-const mePaul = $("#me-paul");
-const meJohn = $("#me-john");
-const meGeorge = $("#me-george");
-const meRingo = $("#me-ringo");
-const clownFish = $("#clownfish");
-const bubbles = $(".bubble");
-const colorsDiv = $("#colors-container");
-const blackAlbum = $("#black-album");
-const whiteAlbum = $("#white-album");
-const greenAlbum = $("#green-album");
-const redAlbum = $("#red-album");
-const friendBed = $("#friend-text");
-const mosaic = $("#mosaic");
+var audio = document.querySelector("#main-audio");
+var playBtn = $("#play-btn");
+var pauseBtn = $("#pause-btn");
+var replayBtn = $("#replay-btn");
+var pop = document.querySelector("#pop");
+var assets = $("#assets");
+var mainContainer = $("#main-container");
+var words = $("#words");
+var numsTable = $("#nums-table");
+var john1 = $("#1-john");
+var ringo2 = $("#2-ringo");
+var george3 = $("#3-george");
+var paul4 = $("#4-paul");
+var littleMore = $("#little-more");
+var johnHead = $("#john-head");
+var paulHead = $("#paul-head");
+var georgeHead = $("#george-head");
+var ringoHead = $("#ringo-head");
+var heart = $("#heart");
+var loveClass = $(".love");
+var loveYouText = $("#love-you-text");
+var alphaTable = $("#alpha-table");
+var aPaul = $("#a-paul");
+var bJohn = $("#b-john");
+var cRingo = $("#c-ringo");
+var dGeorge = $("#d-george");
+var friendTea = $("#friend-tea");
+var beatlesOutside = $("#beatles-outside");
+var waves = $("#waves");
+var ship = $("#ship");
+var meadow = $("#meadow");
+var tree = $("#tree");
+var lumberjack = $("#lumberjack");
+var bird = $("#bird");
+var sidewalk = $("#sidewalk");
+var treeTrunk = $("#tree-trunk");
+var jumpRope = $("#jump-rope");
+var school = $("#school");
+var sub = $("#sub");
+var meList = $("#me-list");
+var mePaul = $("#me-paul");
+var meJohn = $("#me-john");
+var meGeorge = $("#me-george");
+var meRingo = $("#me-ringo");
+var clownFish = $("#clownfish");
+var bubbles = $(".bubble");
+var colorsDiv = $("#colors-container");
+var blackAlbum = $("#black-album");
+var whiteAlbum = $("#white-album");
+var greenAlbum = $("#green-album");
+var redAlbum = $("#red-album");
+var friendBed = $("#friend-text");
+var mosaic = $("#mosaic");
 
-const keyFrames = {
+var keyFrames = {
   "clear": showImage.bind(mainContainer, {}, true),
   "one": childImage.bind(john1, {parentName: numsTable}, true),
   "two": childImage.bind(ringo2),
@@ -124,7 +124,7 @@ const keyFrames = {
 };
 
 // Timings for keyframes
-const timings = {
+var timings = {
   "0.1": "clear",
   "10.5": "one",
   "11.2": "two",
@@ -309,7 +309,7 @@ function moveAcrossScreen() {
 
 }
 
-const bubbleClickEventListener = function() {
+var bubbleClickEventListener = function() {
   $(".bubble").on("click", function() {
       pop.play();
       this.remove();
@@ -317,14 +317,14 @@ const bubbleClickEventListener = function() {
 };
 
 // Removes bubble when offscreen
-const bubbleAnimationEventListener = function() {
+var bubbleAnimationEventListener = function() {
   $(".bubble").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
     // console.log('REMOVED BUBBLE!');
     this.remove();
   });
 };
 
-const meBubbleAnimationEventListener = function() {
+var meBubbleAnimationEventListener = function() {
   $(".me-images").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
     let image = $(e.target);
     image.css("opacity", "0");
@@ -377,13 +377,13 @@ function hidePlaybackControls() {
     $(".controls").fadeOut("slow");
 }
 
-const mainContainerMouseEventListener = function() {
+var mainContainerMouseEventListener = function() {
   mainContainer.on("mousemove", function() {
     displayPlaybackControls();
   });
 };
 
-const startAudioEventListener = function() {
+var startAudioEventListener = function() {
   $(audio).on('play', function() {
     console.log('starting');
     timeChecker = setInterval(function() {
@@ -392,7 +392,7 @@ const startAudioEventListener = function() {
   });
 };
 
-const stopAudioEventListener = function() {
+var stopAudioEventListener = function() {
   $(audio).on("pause", function() {
     console.log('clearing');
     clearInterval(timeChecker);
@@ -400,7 +400,7 @@ const stopAudioEventListener = function() {
 };
 
 // Control playback with mouse click
-const mainContainerEventListener = function() {
+var mainContainerEventListener = function() {
   mainContainer.on("click", function(e) {
     handleControls(e, click=true);
   });
