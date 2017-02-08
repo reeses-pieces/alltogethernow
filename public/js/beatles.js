@@ -64,6 +64,7 @@ var greenAlbum = $("#green-album");
 var redAlbum = $("#red-album");
 var friendBed = $("#friend-text");
 var mosaic = $("#mosaic");
+var controls = $(".controls");
 
 var keyFrames = {
   "clear": showImage.bind(mainContainer, {}, true),
@@ -120,6 +121,7 @@ var keyFrames = {
   "blue": showImage.bind($("#slide"), {left: 11}),
   "allTogether": showImage.bind($(".together")),
   "moveSub": moveAcrossScreen.bind($("#sub-two")),
+  "fadeOut": fadeOutThis.bind($(".together")),
   "credits": animateObj.bind($("#credits-container"), {opacity: 1})
 };
 
@@ -215,6 +217,7 @@ var timings = {
   "103.0": "moveSub",
   "110.0": "moveSub",
   "118.0": "clearBubbles",
+  "120.0": "fadeOut",
   "124.7": "credits"
 };
 
@@ -275,7 +278,6 @@ function startBubbleCloner() {
 
 function stopBubbleCloner() {
   clearInterval(bubbleInterval);
-  $(".together").fadeOut("slow");
 }
 
 // Clone bubble, randomize scale, left, and animation duration 
@@ -367,11 +369,11 @@ function displayPlaybackControls() {
       pauseBtn.show();
       playBtn.hide();
     }
-    setTimeout(hidePlaybackControls, 2000);
+    setTimeout(fadeOutThis.bind(controls), 2000);
 }
 
-function hidePlaybackControls() {
-    $(".controls").fadeOut("slow");
+function fadeOutThis() {
+    $(this).fadeOut("slow");
 }
 
 var mainContainerMouseEventListener = function() {
