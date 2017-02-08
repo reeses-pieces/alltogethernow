@@ -270,15 +270,12 @@ function getRandom(min, max) {
 
 // Let the bubble cloning commence!
 function startBubbleCloner() {
-  startBubbleCloner.called = true;
   bubbleInterval = setInterval(cloneBubbles, 1000);
-  stopBubbleCloner.called = false;
 }
 
 function stopBubbleCloner() {
-  stopBubbleCloner.called = true;
   clearInterval(bubbleInterval);
-  startBubbleCloner.called = false;
+  $(".together").fadeOut("slow");
 }
 
 // Clone bubble, randomize scale, left, and animation duration 

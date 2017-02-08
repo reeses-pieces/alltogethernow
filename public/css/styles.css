@@ -291,7 +291,7 @@ h2 {
 
 #all-together {
   font-size: 2em;
-  animation: fadeInfadeOut 2s linear 14 forwards;
+  animation: fadeInfadeOut 2s linear infinite forwards;
   z-index: 10;
 }
 
