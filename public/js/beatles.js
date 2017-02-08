@@ -7,11 +7,10 @@ $(document).ready(function() {
   bubbleClickEventListener();
   bubbleAnimationEventListener();
   meBubbleAnimationEventListener();
-  // displayPlaybackControls();
 });
 
-let timeChecker; // Var for interval checker
-let bubbleInterval;
+let timeChecker; // Var for time interval checker
+let bubbleInterval; // Var for bubble interval cloner
 const audio = document.querySelector("#main-audio");
 const playBtn = $("#play-btn");
 const pauseBtn = $("#pause-btn");
