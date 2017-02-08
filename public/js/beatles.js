@@ -217,7 +217,7 @@ var timings = {
   "103.0": "moveSub",
   "110.0": "moveSub",
   "118.0": "clearBubbles",
-  "121.0": "fadeOut",
+  "119.5": "fadeOut",
   "124.7": "credits"
 };
 

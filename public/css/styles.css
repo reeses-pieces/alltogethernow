@@ -44,7 +44,7 @@ h2 {
 
 #main-container {
   margin: 50px auto;
-  max-width: 1280px;
+  width: 1280px;
   height: 720px;
   border-radius: 15px;
   position: relative;
