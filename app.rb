@@ -1,3 +1,4 @@
+require 'rerun'
 require 'sinatra'
 
 get '/' do
