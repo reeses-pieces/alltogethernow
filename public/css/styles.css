@@ -69,6 +69,10 @@ h2 {
     #alpha-table img {
       height: 50%;
     }
+
+    #assets #waves {
+      bottom: -85%
+    }
 }
 
 .whitebg {background: white;}
