@@ -407,8 +407,8 @@ var mainContainerEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-// $("#mosaic").show();
+// $("#nums-table").show();
 // $("#slide").show();
 // DEBUG!
 // audio.currentTime = 88;
-// audio.currentTime = 30;
+audio.currentTime = 20;

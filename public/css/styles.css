@@ -17,7 +17,6 @@ html {
 body {
   margin: auto;
   min-height:100vh;
-  background-size:cover;
   align-items: center;
   justify-content: center;
   background-image:
@@ -54,11 +53,21 @@ h2 {
 }
 
 @media only screen and (max-width: 1280px) {
+
+    html {
+      letter-spacing: 1px;
+      font-size: 20px;
+    }
+
     #main-container {
       margin: 15px auto;
       width: 768px;
       height: 432px;
       background-color: lightblue;
+    }
+
+    #alpha-table img {
+      height: 50%;
     }
 }
 
@@ -92,16 +101,14 @@ h2 {
 }
 
 #nums-table {
-  margin: 10px auto;
-  padding: 0;
+  width: 75%;
+  height: 75%;
   border-spacing: 0;
 }
 
 .nums {
   opacity: 0;
   border-radius: 5px;
-  width: 75%;
-  height: 75%;
 }
 
 .horiz-heads {
