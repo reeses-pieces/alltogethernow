@@ -73,10 +73,10 @@ var keyFrames = {
   "three": childImage.bind(george3),
   "four": childImage.bind(paul4),
   "little more": showImage.bind(littleMore, {}, true),
-  "five": animateObj.bind(johnHead, {left: "-102px"}, true),
-  "six": animateObj.bind(paulHead, {right: "-102px"}),
-  "seven": animateObj.bind(georgeHead, {top: "-102px"}),
-  "eight": animateObj.bind(ringoHead, {bottom: "-102px"}),
+  "five": animateObj.bind(johnHead, {left: "0px"}, true),
+  "six": animateObj.bind(paulHead, {right: "0px"}),
+  "seven": animateObj.bind(georgeHead, {top: "0px"}),
+  "eight": animateObj.bind(ringoHead, {bottom: "0px"}),
   "love": showImage.bind(loveClass, {}, true),
   "a": childImage.bind(aPaul, {parentName: alphaTable}, true),
   "b": childImage.bind(bJohn),
@@ -115,10 +115,10 @@ var keyFrames = {
   "red": childImage.bind(redAlbum, {parentName: colorsDiv}, true),
   "friend to bed": showImage.bind(friendBed, {}, true),
   "pink": showImage.bind($(".tile"), {}, true),
-  "brown": showImage.bind($("#slide"), {left: 57.4}),
-  "yellow": showImage.bind($("#slide"), {left: 42}),
-  "orange": showImage.bind($("#slide"), {left: 26.6}),
-  "blue": showImage.bind($("#slide"), {left: 11}),
+  "brown": showImage.bind($("#slide"), {left: 57.4, altLeft: 59.4}),
+  "yellow": showImage.bind($("#slide"), {left: 42, altLeft: 39.5}),
+  "orange": showImage.bind($("#slide"), {left: 26.6, altLeft: 20}),
+  "blue": showImage.bind($("#slide"), {left: 11, altLeft: 0.1}),
   "allTogether": showImage.bind($(".together")),
   "moveSub": moveAcrossScreen.bind($("#sub-two")),
   "fadeOut": fadeOutThis.bind($(".together")),
@@ -242,6 +242,10 @@ function handleArgs(args) {
   }
   if(args.addClass) {
     this.addClass(args.addClass);
+  }
+  if(args.altLeft) {
+    console.log('LOGGED');
+    this.css('left', `${args.altLeft}%`);
   }
 }
 
@@ -411,4 +415,4 @@ assets.children().hide();
 // $("#slide").show();
 // DEBUG!
 // audio.currentTime = 88;
-audio.currentTime = 58.3;
+audio.currentTime = 15;

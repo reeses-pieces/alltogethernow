@@ -65,8 +65,21 @@ h2 {
       height: 432px;
     }
 
+    #assets .horiz-heads, #assets .vert-heads {
+      width: 30%;
+    }
+
     #alpha-table img {
       height: 50%;
+    }
+
+    #assets #alpha-table td {
+      padding: 20px;
+    }
+
+    #assets #heart {
+      width: 60%;
+      height: 60%;
     }
 
     #assets #waves {
@@ -188,23 +201,22 @@ h2 {
 }
 
 #john-head {
-  transform: scale(.64) rotate(90deg);
-  left: -408px;
+  transform: rotate(90deg);
+  left: -328px;
 }
 
 #paul-head {
-  transform: scale(.64) rotate(-90deg);
-  right: -408px;
+  transform: rotate(-90deg);
+  right: -328px;
 }
 
 #george-head {
-  transform: scale(.64) rotate(180deg);
-  top: -408px;
+  transform: rotate(180deg);
+  top: -328px;
 }
 
 #ringo-head {
-  transform: scale(.64);
-  bottom: -408px;
+  bottom: -328px;
 }
 
 .love {
