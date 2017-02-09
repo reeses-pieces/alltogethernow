@@ -63,7 +63,6 @@ h2 {
       margin: 15px auto;
       width: 768px;
       height: 432px;
-      background-color: lightblue;
     }
 
     #alpha-table img {
@@ -101,9 +100,42 @@ h2 {
       top: -51.5%;
       transform: scale(.6);
     }
+
+    #assets #sub {
+      top: 30%;
+      animation: subMove 9s cubic-bezier(0.175, 0.460, 0.895, 0.510) forwards 1;
+      transform: scale(.8);
+    }
+
+    #assets .bubble {
+      transform: scale(.3);
+    }
+
+    #assets .colors {
+      width: 50%;
+      transform: translateX(-100%);
+    }
+
+    #assets #mosaic {
+      width: 100%;
+      height: 100%;
+    }
+
+    #assets #slide {
+      width: 100%;
+      top: 33%;
+      left: 79%;
+    }
 }
 
-.whitebg {background: white;}
+.whitebg {
+  background: rgb(242,245,246); /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(242,245,246,1) 0%, rgba(227,234,237,1) 37%, rgba(200,215,220,1) 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center,  rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+/*.whitebg {background: white;}*/
 
 .abs-pos {
   position: absolute;
@@ -342,7 +374,7 @@ h2 {
   align-items: center;
 }
 
-#colors-container img {
+.colors {
   opacity: 0;
 }
 
