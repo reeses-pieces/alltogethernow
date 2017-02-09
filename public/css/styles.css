@@ -73,6 +73,34 @@ h2 {
     #assets #waves {
       bottom: -85%
     }
+
+    #assets #meadow {
+      top: -46%;
+      right: -90%;
+    }
+
+    #assets #tree {
+      bottom: 2.2%;
+      transform: scale(1);
+    }
+
+    #assets #lumberjack {
+      transform: scale(.4);
+      bottom: -43.8%;
+      left: -9.7%;
+    }
+
+    #assets #sidewalk {
+      left: -38%;
+      bottom: -23.8%;
+      transform: scale(.7);
+    }
+
+    #assets #tree-trunk {
+      left: -25%;
+      top: -51.5%;
+      transform: scale(.6);
+    }
 }
 
 .whitebg {background: white;}
@@ -195,15 +223,15 @@ h2 {
 
 /*Chop the Tree*/
 #meadow {
-  top: 100px;
-  right: -255px;
+  top: 13.9%;
+  right: -19.9%;
 }
 
 #tree {
   z-index: 2;
   transform: scale(1.5);
-  bottom: 160px;
-  right: -76px;
+  bottom: 22.2%;
+  right: -5.9%;
 }
 
 #lumberjack {

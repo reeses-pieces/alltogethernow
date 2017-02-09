@@ -411,4 +411,4 @@ assets.children().hide();
 // $("#slide").show();
 // DEBUG!
 // audio.currentTime = 88;
-audio.currentTime = 30;
+audio.currentTime = 35;
