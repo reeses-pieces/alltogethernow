@@ -243,8 +243,9 @@ function handleArgs(args) {
   if(args.addClass) {
     this.addClass(args.addClass);
   }
-  if(args.altLeft) {
-    console.log('LOGGED');
+  // Activate for media query slide animation
+  if(args.altLeft && window.innerWidth <= 1280) {
+    console.log('ALTLEFT');
     this.css('left', `${args.altLeft}%`);
   }
 }
@@ -415,4 +416,4 @@ assets.children().hide();
 // $("#slide").show();
 // DEBUG!
 // audio.currentTime = 88;
-audio.currentTime = 15;
+// audio.currentTime = 15;
