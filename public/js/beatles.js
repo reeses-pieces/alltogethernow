@@ -9,8 +9,8 @@ $(document).ready(function() {
   meBubbleAnimationEventListener();
 });
 
-let timeChecker; // Var for time interval checker
-let bubbleInterval; // Var for bubble interval cloner
+var timeChecker; // Var for time interval checker
+var bubbleInterval; // Var for bubble interval cloner
 var audio = document.querySelector("#main-audio");
 var playBtn = $("#play-btn");
 var pauseBtn = $("#pause-btn");
@@ -276,7 +276,7 @@ function getRandom(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-// Let the bubble cloning commence!
+// var the bubble cloning commence!
 function startBubbleCloner() {
   bubbleInterval = setInterval(cloneBubbles, 1000);
 }
@@ -288,11 +288,11 @@ function stopBubbleCloner() {
 // Clone bubble, randomize scale, left, and animation duration 
 function cloneBubbles() {
   $.each(bubbles, function(i, bubble) {
-    let jbubble = $(bubble);
+    var jbubble = $(bubble);
     // Important to copy event handler!
-    let clone = jbubble.clone(true);
-    let randomLeft = getRandom(-10, 90);
-    let randomSec = getRandom(5, 15);
+    var clone = jbubble.clone(true);
+    var randomLeft = getRandom(-10, 90);
+    var randomSec = getRandom(5, 15);
     clone.css('left', `${randomLeft}%`);
     clone.css('animation', `float ${randomSec}s linear forwards, bubbleRotate 2.5s linear forwards infinite`);
     clone.appendTo("#assets");
@@ -301,10 +301,10 @@ function cloneBubbles() {
 
 function moveAcrossScreen() {
   this.show();
-  let currentLeft = this.css("left").replace(/px/gi, '');
-  let targetLeft = currentLeft < 0 ? '100%' : "-100%";
-  let targetTop  = getRandom(0, 60) + '%';
-  let targetScale = getRandom(0.2, 1);
+  var currentLeft = this.css("left").replace(/px/gi, '');
+  var targetLeft = currentLeft < 0 ? '100%' : "-100%";
+  var targetTop  = getRandom(0, 60) + '%';
+  var targetScale = getRandom(0.2, 1);
   this.css({"left": targetLeft, "top": targetTop, "transform": `scale(${targetScale})`});
   // If offscreen on right rotate to face proper direction
   if(targetLeft == "-100%") {
@@ -330,7 +330,7 @@ var bubbleAnimationEventListener = function() {
 
 var meBubbleAnimationEventListener = function() {
   $(".me-images").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-    let image = $(e.target);
+    var image = $(e.target);
     image.css("opacity", "0");
     image.removeClass("float");
   });
@@ -339,7 +339,7 @@ var meBubbleAnimationEventListener = function() {
 function handleControls(e, click=false) {
   // Space or click
   if (click || e.keyCode === 32) {
-    let command = audio.paused ? audio.play() : audio.pause();
+    var command = audio.paused ? audio.play() : audio.pause();
     displayPlaybackControls();
   }
 }
@@ -356,7 +356,7 @@ function currentTimeInTimings() {
 function timingChecker() {
   console.log(getCurrentAudioTime());
   if(currentTimeInTimings()) {
-    let command = timings[getCurrentAudioTime()];
+    var command = timings[getCurrentAudioTime()];
     console.log('command', command);
     keyFrames[command]();
   }
