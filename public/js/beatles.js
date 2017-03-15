@@ -276,7 +276,7 @@ function getRandom(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-// var the bubble cloning commence!
+// let the bubble cloning commence!
 function startBubbleCloner() {
   bubbleInterval = setInterval(cloneBubbles, 1000);
 }
