@@ -225,7 +225,7 @@ var timings = {
 
 // Reset all children with opacity changes, beatles outside img
 function reset() {
-  $('hidden').css("opacity", 0)
+  $('.hidden').css("opacity", 0)
   $('#beatles-outside').css({"width": "", "height": ""})
 }
 
