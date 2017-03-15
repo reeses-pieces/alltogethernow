@@ -68,7 +68,7 @@ var controls = $(".controls");
 
 var keyFrames = {
   "clear": showImage.bind(mainContainer, {}, true),
-  "reset": reset.bind($(".hidden")),
+  "reset": reset.bind(null),
   "one": childImage.bind(john1, {parentName: numsTable}, true),
   "two": childImage.bind(ringo2),
   "three": childImage.bind(george3),
@@ -223,9 +223,10 @@ var timings = {
   "124.7": "credits"
 };
 
-// Reset all children with opacity changes
+// Reset all children with opacity changes, beatles outside img
 function reset() {
-  this.css("opacity", 0)
+  $('hidden').css("opacity", 0)
+  $('#beatles-outside').css({"width": "", "height": ""})
 }
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
@@ -241,6 +242,7 @@ function showImage(args={}, hide=false) {
 }
 
 function handleArgs(args) {
+  // Cannot use switch statement. Need to evaluate every condition.
   if(args.top || args.left) {
     this.css({'top': `${args.top}%`, 'left': `${args.left}%`});
   }
