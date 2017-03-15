@@ -68,6 +68,7 @@ var controls = $(".controls");
 
 var keyFrames = {
   "clear": showImage.bind(mainContainer, {}, true),
+  "reset": reset.bind($(".hidden")),
   "one": childImage.bind(john1, {parentName: numsTable}, true),
   "two": childImage.bind(ringo2),
   "three": childImage.bind(george3),
@@ -128,6 +129,7 @@ var keyFrames = {
 // Timings for keyframes
 var timings = {
   "0.1": "clear",
+  "0.2": "reset",
   "10.5": "one",
   "11.2": "two",
   "11.9": "three",
@@ -220,6 +222,11 @@ var timings = {
   "119.5": "fadeOut",
   "124.7": "credits"
 };
+
+// Reset all children with opacity changes
+function reset() {
+  this.css("opacity", 0)
+}
 
 // If calling first image, hide everything else. Otherwise, keep the other images visible
 function showImage(args={}, hide=false) {
