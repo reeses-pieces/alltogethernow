@@ -245,7 +245,6 @@ function handleArgs(args) {
   }
   // Activate for media query slide animation
   if(args.altLeft && window.innerWidth <= 1280) {
-    console.log('ALTLEFT');
     this.css('left', `${args.altLeft}%`);
   }
 }
@@ -278,7 +277,7 @@ function getRandom(min, max) {
 
 // let the bubble cloning commence!
 function startBubbleCloner() {
-  bubbleInterval = setInterval(cloneBubbles, 1000);
+  bubbleInterval = setInterval(cloneBubbles, 1500);
 }
 
 function stopBubbleCloner() {
@@ -374,7 +373,9 @@ function displayPlaybackControls() {
       pauseBtn.show();
       playBtn.hide();
     }
-    setTimeout(fadeOutThis.bind(controls), 2000);
+    if(!audio.ended) {
+      setTimeout(fadeOutThis.bind(controls), 2000);
+    }
 }
 
 function fadeOutThis() {
