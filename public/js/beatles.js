@@ -331,11 +331,11 @@ var bubbleClickEventListener = function() {
 // Removes bubble when offscreen
 var bubbleAnimationEventListener = function() {
   $(".bubble").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-    // console.log('REMOVED BUBBLE!');
     this.remove();
   });
 };
 
+// Reset state after animation
 var meBubbleAnimationEventListener = function() {
   $(".me-images").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
     var image = $(e.target);
@@ -392,6 +392,7 @@ function fadeOutThis() {
     $(this).fadeOut("slow");
 }
 
+// Display controls when hovering over main container
 var mainContainerMouseEventListener = function() {
   mainContainer.on("mousemove", function() {
     displayPlaybackControls();
