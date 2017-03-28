@@ -69,20 +69,20 @@ var controls = $(".controls");
 var keyFrames = {
   "clear": showImage.bind(mainContainer, {}, true),
   "reset": reset.bind(null),
-  "one": childImage.bind(john1, {parentName: numsTable}, true),
-  "two": childImage.bind(ringo2),
-  "three": childImage.bind(george3),
-  "four": childImage.bind(paul4),
+  "one": showChild.bind(john1, {parentName: numsTable}, true),
+  "two": showChild.bind(ringo2),
+  "three": showChild.bind(george3),
+  "four": showChild.bind(paul4),
   "little more": showImage.bind(littleMore, {}, true),
   "five": animateObj.bind(johnHead, {left: "0px"}, true),
   "six": animateObj.bind(paulHead, {right: "0px"}),
   "seven": animateObj.bind(georgeHead, {top: "0px"}),
   "eight": animateObj.bind(ringoHead, {bottom: "0px"}),
   "love": showImage.bind(loveClass, {}, true),
-  "a": childImage.bind(aPaul, {parentName: alphaTable}, true),
-  "b": childImage.bind(bJohn),
-  "c": childImage.bind(cRingo),
-  "d": childImage.bind(dGeorge),
+  "a": showChild.bind(aPaul, {parentName: alphaTable}, true),
+  "b": showChild.bind(bJohn),
+  "c": showChild.bind(cRingo),
+  "d": showChild.bind(dGeorge),
   "friend to tea": showImage.bind(friendTea, {}, true),
   "e": showImage.bind(beatlesOutside, {left: -1} , true),
   "f": showImage.bind(beatlesOutside, {left: -12}),
@@ -104,16 +104,16 @@ var keyFrames = {
   "oceanblue": showImage.bind(mainContainer, {addClass: "oceanblue"}, true),
   "clownfish": showImage.bind(clownFish),
   "sub": showImage.bind(sub),
-  "me-paul": childImage.bind(mePaul, {parentName: meList, addClass: "float"}),
-  "me-john": childImage.bind(meJohn, {addClass: "float"}),
-  "me-george": childImage.bind(meGeorge, {addClass: "float"}),
-  "me-ringo": childImage.bind(meRingo, {addClass: "float"}),
+  "me-paul": showChild.bind(mePaul, {parentName: meList, addClass: "float"}),
+  "me-john": showChild.bind(meJohn, {addClass: "float"}),
+  "me-george": showChild.bind(meGeorge, {addClass: "float"}),
+  "me-ringo": showChild.bind(meRingo, {addClass: "float"}),
   "bubbles": startBubbleCloner.bind(null),
   "clearBubbles": stopBubbleCloner.bind(null),
-  "black": childImage.bind(blackAlbum, {parentName: colorsDiv}, true),
-  "white": childImage.bind(whiteAlbum, {parentName: colorsDiv}, true),
-  "green": childImage.bind(greenAlbum, {parentName: colorsDiv}, true),
-  "red": childImage.bind(redAlbum, {parentName: colorsDiv}, true),
+  "black": showChild.bind(blackAlbum, {parentName: colorsDiv}, true),
+  "white": showChild.bind(whiteAlbum, {parentName: colorsDiv}, true),
+  "green": showChild.bind(greenAlbum, {parentName: colorsDiv}, true),
+  "red": showChild.bind(redAlbum, {parentName: colorsDiv}, true),
   "friend to bed": showImage.bind(friendBed, {}, true),
   "pink": showImage.bind($(".tile"), {}, true),
   "brown": showImage.bind($("#slide"), {left: 57.4, altLeft: 59.4}),
@@ -266,7 +266,7 @@ function animateObj(args={}, hide=false) {
   this.animate(args, 300);
 }
 
-function childImage(args={}, hide=false) {
+function showChild(args={}, hide=false) {
   if(hide) {
     assets.children().hide();
     mainContainer.removeClass().addClass("whitebg");
@@ -321,6 +321,7 @@ function moveAcrossScreen() {
 
 }
 
+// Easter egg - You can pop the bubbles!
 var bubbleClickEventListener = function() {
   $(".bubble").on("click", function() {
       pop.play();
@@ -361,13 +362,19 @@ function currentTimeInTimings() {
   return timings[getCurrentAudioTime()];
 }
 
+// Check if current audio time is in timings hash
 function timingChecker() {
   console.log(getCurrentAudioTime());
   if(currentTimeInTimings()) {
     var command = timings[getCurrentAudioTime()];
-    console.log('command', command);
-    keyFrames[command]();
+    executeCommand(command);
   }
+}
+
+// Execute command in keyframes
+function executeCommand(command) {
+    console.log('command', command);
+    keyFrames[command]();  
 }
 
 function displayPlaybackControls() {
@@ -424,8 +431,6 @@ var mainContainerEventListener = function() {
 
 // Start with all the assets hidden
 assets.children().hide();
-// $("#nums-table").show();
-// $("#slide").show();
 // DEBUG!
 // audio.currentTime = 88;
 // audio.currentTime = 15;
