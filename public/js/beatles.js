@@ -124,7 +124,7 @@ var keyFrames = {
   "moveSub": moveAcrossScreen.bind($("#sub-two")),
   "fadeOut": fadeOutThis.bind($(".together")),
   "credits": animateObj.bind($("#credits-container"), {opacity: 1})
-};
+}
 
 // Timings for keyframes
 var timings = {
@@ -221,7 +221,7 @@ var timings = {
   "118.0": "clearBubbles",
   "119.5": "fadeOut",
   "124.7": "credits"
-};
+}
 
 // Reset all children with opacity changes, beatles outside img
 function reset() {
@@ -339,7 +339,7 @@ var bubbleAnimationEventListener = function() {
 // Reset state after animation
 var meBubbleAnimationEventListener = function() {
   $(".me-images").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-    var image = $(e.target);
+    var image = $(this);
     image.css("opacity", "0");
     image.removeClass("float");
   });
