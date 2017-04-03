@@ -390,7 +390,7 @@ function displayPlaybackControls() {
       playBtn.hide();
       replayBtn.hide()
     }
-    if(!audio.ended) {
+    if(!audio.ended && audio.currentTime > 0) {
       setTimeout(fadeOutThis.bind(controls), 2000);
     }
 }
