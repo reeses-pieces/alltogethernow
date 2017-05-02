@@ -9,7 +9,8 @@ run lambda { |env|
     200,
     {
       'Content-Type'  => 'text/html',
-      'Cache-Control' => 'public, max-age=86400'
+      'Cache-Control' => 'public, max-age=86400',
+      'HOSTNAME' => "http://alltogethernow.herokuapp.com/"
     },
     File.open('public/index.html', File::RDONLY)
   ]
@@ -18,10 +19,10 @@ run lambda { |env|
 # Ping url every 10 minutes to stay alive
 scheduler = Rufus::Scheduler.new
 
-    if Rack::Static
-      scheduler.every '10m' do
-         require "net/http"
-         require "uri"
-         Net::HTTP.get_response(URI.parse(ENV["HOSTNAME"]))
-      end
-    end
+if ENV["RACK_ENV"] == "production"
+  scheduler.every '10m' do
+     require "net/http"
+     require "uri"
+     Net::HTTP.get_response(URI.parse(ENV["HOSTNAME"]))
+  end
+end
