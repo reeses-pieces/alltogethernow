@@ -1,13 +1,21 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    et-orbi (1.0.3)
+      tzinfo
     rack (2.0.1)
+    rufus-scheduler (3.4.0)
+      et-orbi (~> 1.0)
+    thread_safe (0.3.6)
+    tzinfo (1.2.3)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   rack
+  rufus-scheduler
 
 RUBY VERSION
    ruby 2.3.1p112
