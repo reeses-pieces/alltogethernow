@@ -20,7 +20,7 @@ run lambda { |env|
 scheduler = Rufus::Scheduler.new
 
 if ENV["RACK_ENV"] == "production"
-  scheduler.every '10m' do
+  scheduler.cron '0 9-21 * * *' do
      require "net/http"
      require "uri"
      Net::HTTP.get_response(URI.parse(ENV["HOSTNAME"]))
