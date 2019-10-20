@@ -3,7 +3,7 @@ GEM
   specs:
     et-orbi (1.0.3)
       tzinfo
-    rack (2.0.1)
+    rack (2.0.6)
     rufus-scheduler (3.4.0)
       et-orbi (~> 1.0)
     thread_safe (0.3.6)
